@@ -1,0 +1,36 @@
+@import 'material';
+$red:                   #d17678;
+$accent_green:          #afbea2;
+
+$primary-mon:           $primaryContainer;
+$secondary-mon:         $tertiaryContainer;
+$third-mon:             $tertiary;
+$fourth-mon:            $success;
+
+$tooltip-bg:            $background;
+$fg:                    $onBackground;
+$bg:                    transparentize($background, .5);
+$bar-bg:                transparentize($background, .5);
+
+$surface:               transparentize($surfaceBright, .6);
+$overlay:               transparentize($onSurface, .25);
+
+$accent:                $tertiaryContainer;
+
+/* buttons */
+$button-enabled:        $accent;
+$button-enabled-hover:  adjust_color($button-enabled, $lightness: -15%);
+
+$button-disabled:       $surface;
+$button-disabled-hover: adjust_color($button-disabled, $alpha: +0.8);
+
+* {
+  text-shadow: 0 2px 3px transparentize($background, .8);
+}
+
+@mixin border {
+  // border: 1px solid transparentize($background, .9);
+  box-shadow:
+    // inset 0 0 0 1px transparentize($background, .9),
+    0 3px 5px 1px transparentize($background, .9);
+}
