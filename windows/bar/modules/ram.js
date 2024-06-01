@@ -1,7 +1,7 @@
 import Widget from 'resource:///com/github/Aylur/ags/widget.js';
 import { Utils } from '../../../imports.js';
 
-export const RamWidget = () => {
+export default () => {
     const label = Widget.Label({
         className: 'ram-inner',
         label: '',

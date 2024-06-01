@@ -7,8 +7,8 @@ import Net from "./modules/net.js";
 import Tray from "./modules/tray.js";
 import Workspaces from "./modules/workspaces.js";
 import Gtk from "gi://Gtk?version=3.0";
-import {CpuWidget} from "./modules/cpu.js";
-import {RamWidget} from "./modules/ram.js";
+import CpuWidget from "./modules/cpu.js";
+import RamWidget from "./modules/ram.js";
 import Separator from "./modules/separator.js";
 
 
