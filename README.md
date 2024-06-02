@@ -19,7 +19,7 @@ Incomplete. Working on completion.
   - python-materialyoucolor-git
   - gradience-git
   - python-libsass
-  - python-material-color-utilitiesOmkv
+  - python-material-color-utilities
   - python-build
   - python-pillow
   - python-pywal
