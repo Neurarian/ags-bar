@@ -27,6 +27,7 @@ Incomplete. Working on completion.
   - python-wheel
   - ttf-jetbrains-mono-nerd
   - adw-gtk3-git
+  - adwaita-icon-theme
   - coreutils
   - dart-sass
   - gawk
