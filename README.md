@@ -25,7 +25,6 @@ Incomplete. Working on completion.
   - python-pywal
   - python-setuptools-scm
   - python-wheel
-  - ttf-jetbrains-mono-nerd
   - adw-gtk3-git
   - adwaita-icon-theme
   - coreutils
