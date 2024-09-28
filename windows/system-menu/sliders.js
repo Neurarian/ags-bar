@@ -1,4 +1,4 @@
-import { App, Audio, Icons, Utils, Widget } from "../../imports.js";
+import { App, Audio, Utils, Widget } from "../../imports.js";
 import { audioIcon } from "../../utils/audio.js";
 
 const Slider = (args) =>
