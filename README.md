@@ -49,6 +49,8 @@ After using wal or some other means to set your wallpaper, run the script from [
 $HOME/.config/ags/scripts/colorgen.sh "$HOME/.cache/current_wallpaper.jpg" --apply --smart
 ```
 
+For a NixOS implementation, check my [NixOS-config](https://github.com/Neurarian/NixOS-config)
+
 ---
 
 ### Dark example
