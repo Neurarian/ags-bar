@@ -4,7 +4,6 @@ import Music from "./windows/music/main.js";
 import NotificationPopup from "./windows/notifications/popups.js";
 import Osd from "./windows/osd/main.js";
 import SystemMenu from "./windows/system-menu/main.js";
-import {exec, idle, monitorFile} from "resource:///com/github/Aylur/ags/utils.js";
 import Gdk from "gi://Gdk";
 
 const scss = App.configDir + "/style.scss";
@@ -51,7 +50,7 @@ addWindows(
 );
   monitorCounter++;
 }
-idle(() => {
+Utils.idle(() => {
   addWindows(
   [
     Music(),
