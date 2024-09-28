@@ -6,7 +6,7 @@ This is basically a fork of [fufexan's](https://github.com/fufexan/dotfiles) ags
 
 ---
 ### Dependencies
-Incomplete. Working on completion.
+
 
 <details>
   <summary>show dependency list</summary>
@@ -36,6 +36,18 @@ Incomplete. Working on completion.
   - util-linux
 
 </details>
+
+For the colorgeneration to work, you'll need to create additional some additional folders:
+
+```console
+mkdir -p $XDG_STATE_HOME/ags/scss $XDG_STATE_HOME/ags/user
+```
+
+After using wal or some other means to set your wallpaper, run the script from [end-4](https://github.com/end-4/dots-hyprland) like this:
+
+```console
+$HOME/.config/ags/scripts/colorgen.sh "$HOME/.cache/current_wallpaper.jpg" --apply --smart
+```
 
 ---
 
