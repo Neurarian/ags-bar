@@ -36,7 +36,7 @@ This is basically a fork of [fufexan's](https://github.com/fufexan/dotfiles) ags
 
 </details>
 
-For the color generation to work, you'll need to create additional some additional directories and the colormode file. e.g.:
+For the color generation to work, you'll need to create some additional directories and the colormode file. e.g.:
 
 ```console
 mkdir -p $XDG_STATE_HOME/ags/scss $XDG_STATE_HOME/ags/user
