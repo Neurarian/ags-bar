@@ -36,10 +36,11 @@ This is basically a fork of [fufexan's](https://github.com/fufexan/dotfiles) ags
 
 </details>
 
-For the color generation to work, you'll need to create additional some additional directories:
+For the color generation to work, you'll need to create additional some additional directories and the colormode file. e.g.:
 
 ```console
 mkdir -p $XDG_STATE_HOME/ags/scss $XDG_STATE_HOME/ags/user
+echo -e "dark\nopaque\nvibrant" >> $XDG_STATE_HOME/ags/user/colormode.txt
 ```
 
 After using wal or some other means to set your wallpaper, run the script from [end-4](https://github.com/end-4/dots-hyprland) like this:
