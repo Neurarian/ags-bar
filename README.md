@@ -48,7 +48,7 @@ After using wal or some other means to set your wallpaper, run the script from [
 ```console
 $HOME/.config/ags/scripts/colorgen.sh "$HOME/.cache/current_wallpaper.jpg" --apply --smart
 ```
-
+The color generation works better with wallpapers that have a bit of contrast.
 For a NixOS implementation, check my [NixOS-config](https://github.com/Neurarian/NixOS-config).
 
 ---
