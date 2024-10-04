@@ -43,13 +43,13 @@ mkdir -p $XDG_STATE_HOME/ags/scss $XDG_STATE_HOME/ags/user
 echo -e "dark\nopaque\nvibrant" >> $XDG_STATE_HOME/ags/user/colormode.txt
 ```
 
-After using wal or some other means to set your wallpaper, run the script from [end-4](https://github.com/end-4/dots-hyprland) like this:
+After using pywal or some other means to set your wallpaper, run the script from [end-4](https://github.com/end-4/dots-hyprland) like this:
 
 ```console
 $HOME/.config/ags/scripts/colorgen.sh "$HOME/.cache/current_wallpaper.jpg" --apply --smart
 ```
 The color generation works better with wallpapers that have a bit of contrast.
-For a NixOS implementation, check my [NixOS-config](https://github.com/Neurarian/NixOS-config).
+For a NixOS implementation and example scripts for use with pywal , check my [NixOS-config](https://github.com/Neurarian/NixOS-config).
 
 ---
 
