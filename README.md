@@ -1,7 +1,7 @@
 
 # Simple bar made with [Aylur's Gtk Shell](https://github.com/Aylur/ags)
 
-This is basically a fork of [fufexan's](https://github.com/fufexan/dotfiles) ags config, tailored to personal taste and my multi-monitor desktop setup on [hyprland](https://github.com/hyprwm/Hyprland). I also stole / butchered the color-theme generation from [end-4](https://github.com/end-4/dots-hyprland). Some snippets for CPU / RAM widgets were yanked from [AhmedSaadi0](https://github.com/AhmedSaadi0/my-hyprland-config/tree/main). The design is also inspired by [saimoomedits](https://github.com/saimoomedits/eww-widgets).
+This is basically a fork of [fufexan's](https://github.com/fufexan/dotfiles) ags config, tailored to personal taste and my multi-monitor desktop setup on [hyprland](https://github.com/hyprwm/Hyprland). I also stole / botched the color-theme generation from [end-4](https://github.com/end-4/dots-hyprland). Some snippets for CPU / RAM widgets were yanked from [AhmedSaadi0](https://github.com/AhmedSaadi0/my-hyprland-config/tree/main). The design is also inspired by [saimoomedits](https://github.com/saimoomedits/eww-widgets).
 
 ---
 ### Dependencies
