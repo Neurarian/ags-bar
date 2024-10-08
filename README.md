@@ -43,7 +43,7 @@ mkdir -p $XDG_STATE_HOME/ags/scss $XDG_STATE_HOME/ags/user
 echo -e "dark\nopaque\nvibrant" >> $XDG_STATE_HOME/ags/user/colormode.txt
 ```
 
-After using pywal or some other means to set your wallpaper, run the script from [end-4](https://github.com/end-4/dots-hyprland) like this:
+After using pywal together with hyprpaper or some other means to set your wallpaper, run the script from [end-4](https://github.com/end-4/dots-hyprland) like this:
 
 ```console
 $HOME/.config/ags/scripts/colorgen.sh "$HOME/.cache/current_wallpaper.jpg" --apply --smart
