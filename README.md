@@ -39,7 +39,7 @@ This is basically a fork of [fufexan's](https://github.com/fufexan/dotfiles) ags
 For the color generation to work, you'll need to create some additional directories and the colormode file. e.g.:
 
 ```console
-mkdir -p $XDG_STATE_HOME/ags/scss $XDG_STATE_HOME/ags/user
+mkdir -p $XDG_STATE_HOME/ags/scss $XDG_STATE_HOME/ags/user $XDG_CACHE_HOME/ags/user/generated
 echo -e "dark\nopaque\nvibrant" >> $XDG_STATE_HOME/ags/user/colormode.txt
 ```
 
