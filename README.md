@@ -36,13 +36,22 @@ This is basically a fork of [fufexan's](https://github.com/fufexan/dotfiles) ags
 
 </details>
 
-For the color generation to work, you'll need to create some additional directories and the colormode file. e.g.:
+### Installation
+**Before you start make sure create a backup of your current ags config if you want to keep it!**
+
+Clone this repo...
+```console
+git clone https://github.com/Neurarian/ags-bar
+```
+... and link/move/copy its content into ~/.config/ags or your stowed ags dotfiles directory. E.g.
+```console
+mv ags-bar ~/.config/ags
+```
+For the color generation to work, run this command to create the necessary additional directories:
 
 ```console
-mkdir -p $XDG_STATE_HOME/ags/scss $XDG_STATE_HOME/ags/user $XDG_CACHE_HOME/ags/user/generated
-echo -e "dark\nopaque\nvibrant" >> $XDG_STATE_HOME/ags/user/colormode.txt
+mkdir -p $XDG_STATE_HOME/ags/{scss,user} $XDG_CACHE_HOME/ags/user/generated
 ```
-I automatized this with Nix, but will add some checks to the script soon to automatize this independently of Nix.
 
 After using pywal together with hyprpaper or some other means to set your wallpaper, run the script from [end-4](https://github.com/end-4/dots-hyprland) like this:
 
