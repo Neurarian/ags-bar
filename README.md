@@ -33,6 +33,7 @@ This is basically a fork of [fufexan's](https://github.com/fufexan/dotfiles) ags
   - procps-ng
   - ripgrep
   - util-linux
+  - Any Nerd Font (Symbols are sufficient)
 
 </details>
 
