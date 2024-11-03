@@ -86,6 +86,22 @@ apply_term() {
       fi
     done
 }
+apply_wlogout() {
+    # Check if scripts/templates/wlogout/wlogout.css exists
+    if [ ! -f "scripts/templates/wlogout/wlogout.css" ]; then
+        echo "Template file not found for wlogout colors. Skipping that."
+        return
+    fi
+    # Copy template
+    mkdir -p "$CACHE_DIR"/user/generated/wlogout
+    cp "scripts/templates/wlogout/wlogout.css" "$CACHE_DIR"/user/generated/wlogout/style.css
+    # Apply colors
+    for i in "''${!colorlist[@]}"; do
+        sed -i "s/{{ ''${colorlist[$i]} }}/''${colorvalues[$i]#\#}/g" "$CACHE_DIR"/user/generated/wlogout/style.css
+    done
+
+    cp "$CACHE_DIR"/user/generated/wlogout/style.css "$XDG_CONFIG_HOME"/wlogout/style.css
+}
 
 apply_hyprland() {
     # Check if scripts/templates/hypr/hyprland/colors.conf exists
@@ -174,8 +190,9 @@ else
 fi
 
 apply_ags &
-#apply_hyprland &
-#apply_hyprlock &
+apply_wlogout &
+apply_hyprland &
+apply_hyprlock &
 apply_gtk &
-#apply_fuzzel &
+apply_fuzzel &
 #apply_term &
