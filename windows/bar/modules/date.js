@@ -27,7 +27,7 @@ export default () =>
           transition: "slide_right",
           child: Widget.Button({
             className: "power-button",
-            onClicked: () => Utils.execAsync(["systemctl poweroff || loginctl poweroff"]),
+            onClicked: () => Utils.execAsync(["sh", "-c", `systemctl poweroff || loginctl poweroff`]),
             // Comment above line and uncomment below to use wlogout instead
             // onClicked: () => Utils.execAsync(["wlogout"]),
             child: Widget.Icon({
