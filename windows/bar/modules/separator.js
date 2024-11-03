@@ -1,4 +1,4 @@
-import { Utils, Widget } from "../../../imports.js";
+import { Widget } from "../../../imports.js";
 
 export default () =>
   Widget.Box({
