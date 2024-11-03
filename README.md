@@ -38,7 +38,7 @@ This is basically a fork of [fufexan's](https://github.com/fufexan/dotfiles) ags
 </details>
 
 ### 🛠️ Installation
-**Before you start make sure create a backup of your current ags config if you want to keep it!**
+**Before you start make sure to create a backup of your current ags config if you want to keep it!**
 
 Clone this repo...
 ```console
