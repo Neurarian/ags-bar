@@ -5,6 +5,7 @@ export default () => {
     const label = Widget.Label({
         className: 'ram-inner',
         label: '',
+        xalign: 0.53,
     });
 
     const button = Widget.Button({

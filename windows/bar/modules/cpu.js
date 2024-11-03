@@ -5,6 +5,7 @@ export default () => {
     const label = Widget.Label({
         className: 'cpu-inner',
         label: '',
+        xalign: 0.55,
     });
 
     const button = Widget.Button({
