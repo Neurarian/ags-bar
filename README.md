@@ -9,12 +9,10 @@ This is basically a fork of [fufexan's](https://github.com/fufexan/dotfiles) ags
 
 <details>
   <summary>show dependency list</summary>
-
+  
+  ### Required:
   - ags
   - hyprland
-  - gnome-control-center
-  - mission-center
-  - overskride
   - python-materialyoucolor-git
   - gradience-git
   - python-libsass
@@ -34,6 +32,11 @@ This is basically a fork of [fufexan's](https://github.com/fufexan/dotfiles) ags
   - ripgrep
   - util-linux
   - Any Nerd Font (Symbols are sufficient)
+  ### Not required but launched by AGS widgets
+  - gnome-control-center
+  - mission-center
+  - overskride
+  - pavucontrol
 
 </details>
 
