@@ -13,7 +13,7 @@ This is basically a fork of [fufexan's](https://github.com/fufexan/dotfiles) ags
   <summary>show dependency list</summary>
   
   #### Required:
-  - ags(v1 for now!)
+  - ags (v1 for now!)
   - hyprland
   - python-materialyoucolor-git
   - gradience-git
