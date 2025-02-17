@@ -1,188 +1,187 @@
-$font: 1.1rem;
-
-.bar {
+.Bar {
   background: $bar-bg;
-  min-height: 32px;
-  border-radius: calc($round2 * 2);
-  margin: 0.45rem 0.45rem 0px 0.45rem;
+  border-radius: calc(#{$round} * 4);
   font-size: $font;
   box-shadow: inset -2px -2px 3px rgba(0, 0, 0, 0.4) , -1px -1px 2px $bg; 
   .module {
     margin: 0 0.4rem;
   }
-}
 
-/* workspaces */
-.bar .workspaces {
-  margin: 0.2rem 0.8rem;
+  .Workspaces {
+    margin: 0.2rem 0.8rem;
 
-  button {
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 2rem;
-    margin: 0.6rem 0.35rem;
-    min-width: 1.3rem;
-    transition: 100ms linear;
-    box-shadow: inset -2px -2px 2px transparentize($bg , 0.2) 
+    button {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 2rem;
+      margin: 0.6rem 0.35rem;
+      min-width: 1.3rem;
+      min-height: 1.3rem;
+      transition: 100ms linear;
+      box-shadow: inset -2px -2px 2px transparentize($bg , 0.2) 
+    }
+
+    
+    .focused {
+      min-width: 2.5rem;
+    }
+
+    .monitor0 {
+      background: $primary-mon;
+      box-shadow: inset -2px -2px 2px adjust_color($primary-mon, $lightness: -10%);
+    }
+    .monitor0:hover{
+      background: adjust_color($primary-mon, $lightness: +8%);
+    }
+
+    .monitor1 {
+      background: $secondary-mon;
+      box-shadow: inset -2px -2px 2px adjust_color($secondary-mon, $lightness: -10%);
+    }
+    .monitor1:hover{
+      background: adjust_color($secondary-mon, $lightness: +8%);
+    }
+    .monitor2 {
+      background: $third-mon;
+      box-shadow: inset -2px -2px 2px adjust_color($third-mon, $lightness: -10%);
+    }
+    .monitor2:hover{
+      background: adjust_color($third-mon, $lightness: +8%);
+    }
+    .monitor3 {
+      background: $fourth-mon;
+      box-shadow: inset -2px -2px 2px adjust_color($fourth-mon, $lightness: -10%);
+    }
+    .monitor3:hover{
+      background: adjust_color($fourth-mon, $lightness: +8%);
+    }
   }
 
-  
-  .focused {
-    min-width: 2.5rem;
+  /* music */
+  .Media {
+    & > box {
+      @include animate;
+      border-radius: $round2;
+      margin: 0.4rem;
+      font-size: $font;
+    }
+
+    &.active > box {
+      background: $surface;
+    }
+
+    .cover {
+      background-size: cover;
+      background-position: center;
+      border-radius: 50%;
+      min-width: 2rem;
+      min-height: 2rem;
+      margin: 0 0.4rem;
+    }
   }
 
-  .monitor0 {
-    background: $primary-mon;
-    box-shadow: inset -2px -2px 2px adjust_color($primary-mon, $lightness: -10%);
-  }
-  .monitor0:hover{
-    background: adjust_color($primary-mon, $lightness: +8%);
-  }
-
-  .monitor1 {
-    background: $secondary-mon;
-    box-shadow: inset -2px -2px 2px adjust_color($secondary-mon, $lightness: -10%);
-  }
-  .monitor1:hover{
-    background: adjust_color($secondary-mon, $lightness: +8%);
-  }
-  .monitor2 {
-    background: $third-mon;
-    box-shadow: inset -2px -2px 2px adjust_color($third-mon, $lightness: -10%);
-  }
-  .monitor2:hover{
-    background: adjust_color($third-mon, $lightness: +8%);
-  }
-  .monitor3 {
-    background: $fourth-mon;
-    box-shadow: inset -2px -2px 2px adjust_color($fourth-mon, $lightness: -10%);
-  }
-  .monitor3:hover{
-    background: adjust_color($fourth-mon, $lightness: +8%);
-  }
-}
-
-/* music */
-.bar .music {
-  & > box {
-    @include animate;
-    border-radius: $round2;
-    margin: 0.4rem;
+  /* tray */
+  .SysTray button {
+    @include button;
+    background: none;
+    margin: 0.5rem 0;
     font-size: $font;
+
+    &:not(:last-child) {
+      margin-right: 0.3rem;
+    }
+
+    &.active {
+      background: $surface;
+    }
   }
 
-  &.active > box {
-    background: $surface;
+  menu {
+    background: $tooltip-bg;
+    border-radius: $round;
+
+    separator {
+      background-color: $surface;
+    }
+
+    menuitem {
+      @include button;
+      border-radius: 0;
+      padding: 0.4rem 0.7rem;
+
+      &:first-child {
+        border-radius: $round $round 0 0;
+      }
+      &:last-child {
+        border-radius: 0 0 $round $round;
+      }
+      &:only-child {
+        border-radius: $round;
+      }
+    }
   }
 
-  .cover {
-    background-size: cover;
-    background-position: center;
-    border-radius: 50%;
+  .system-menu-toggler {
+    box {
+      @include animate;
+      margin: 0.4rem 0;
+      border-radius: $round2;
+    }
+
+    &.active box {
+      background: $surface;
+    }
+  }
+  .bar-hardware-progress-circle {
     min-width: 2rem;
-    min-height: 2rem;
-    margin: 0 0.4rem;
+    min-height: 1.3rem;
+    font-size: 0.3rem;
+    background: transparentize($surfaceDim, 0.5);
   }
-}
 
-/* tray */
-.tray button {
-  @include button;
-  background: none;
-  margin: 0.5rem 0;
-  font-size: $font;
+  .bar-hardware-progress-inner-circle {
+    font-size: 0.7rem;
+    margin: 1px 4px 0px 0px;
+    color: $fg;
+  }
 
-  &:not(:last-child) {
+  .cpu {
+    @extend .bar-hardware-progress-circle;
+    color: $term1;
+
+    .cpu-inner {
+      @extend .bar-hardware-progress-inner-circle;
+    }
+  }
+
+
+
+  .ram {
+    @extend .bar-hardware-progress-circle;
+    color: $term4;
+  }
+
+  .ram-inner {
+    @extend .bar-hardware-progress-inner-circle;
+  }
+
+  .bar-hw-ram-box{
+    margin-right: 0.4rem;
+    margin-left: 0.3rem;
+  }
+
+  .bar-hw-cpu-box {
+    margin-left: 0.4rem;
     margin-right: 0.3rem;
   }
-
-  &.active {
-    background: $surface;
+  .separator {
+    font-size: 1.8rem;
+    color: $outline;
   }
-}
-
-menu {
-  background: $tooltip-bg;
-  border-radius: $round;
-
-  separator {
-    background-color: $surface;
+  .date {
+    margin: 0 1.2rem 0 0.4rem;
+  }
+  .power-button {
+    margin: 0 1.2rem 0 0rem;
+  }
   }
 
-  menuitem {
-    @include button;
-    border-radius: 0;
-    padding: 0.4rem 0.7rem;
-
-    &:first-child {
-      border-radius: $round $round 0 0;
-    }
-    &:last-child {
-      border-radius: 0 0 $round $round;
-    }
-    &:only-child {
-      border-radius: $round;
-    }
-  }
-}
-
-.system-menu-toggler {
-  box {
-    @include animate;
-    margin: 0.4rem 0;
-    border-radius: $round2;
-  }
-
-  &.active box {
-    background: $surface;
-  }
-}
-.bar-hardware-progress-circle {
-  min-width: 2rem;
-  min-height: 1.3rem;
-  font-size: 0.3rem;
-  background: transparentize($surfaceDim, 0.5);
-}
-
-.bar-hardware-progress-inner-circle {
-  font-size: 0.7rem;
-  margin: 1px 4px 0px 0px;
-  color: $fg;
-}
-
-.cpu {
-  @extend .bar-hardware-progress-circle;
-  color: $term1;
-}
-
-.cpu-inner {
-  @extend .bar-hardware-progress-inner-circle;
-}
-
-.ram {
-  @extend .bar-hardware-progress-circle;
-  color: $term4;
-}
-
-.ram-inner {
-  @extend .bar-hardware-progress-inner-circle;
-}
-
-.bar-hw-ram-box{
-  margin-right: 0.4rem;
-  margin-left: 0.3rem;
-}
-
-.bar-hw-cpu-box {
-  margin-left: 0.4rem;
-  margin-right: 0.3rem;
-}
-.separator {
-  font-size: 1.8rem;
-  color: $outline;
-}
-.date {
-  margin: 0 1.2rem 0 0.4rem;
-}
-.power-button {
-  margin: 0 1.2rem 0 0rem;
-}

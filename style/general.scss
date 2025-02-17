@@ -1,18 +1,25 @@
-/* general styles */
-
 $round: 8px;
-$round2: calc($round * 2);
+$round2: calc(#{$round} * 2);
 $margin: 0.4rem;
 $padding: 0.4rem;
 $border-width: 2px;
 $scale: 0.5rem;
+$font: 1.1rem;
+
+* {
+  color: $fg;
+  text-shadow: 0 2px 3px transparentize($background, .8);
+}
 
 @mixin animate {
   transition: 200ms;
 }
 
-* {
-  color: $fg;
+@mixin border {
+  // border: 1px solid transparentize($background, .9);
+  box-shadow:
+    // inset 0 0 0 1px transparentize($background, .9),
+    0 3px 5px 1px transparentize($background, .9);
 }
 
 /* mixins */
@@ -21,7 +28,7 @@ $scale: 0.5rem;
 }
 
 @mixin rounding {
-  border-radius: calc($round2 - $padding - $border-width);
+  border-radius: calc(#{$round2} - #{$padding} - #{$border-width});
 }
 
 @mixin window-box {
@@ -56,15 +63,15 @@ progressbar {
   trough {
     background-color: $surface;
     border-radius: $scale;
-    min-width: calc($scale * 10);
-    padding: 0 calc($scale / 2);
+    min-width: calc(#{$scale} * 10);
+    padding: 0 calc(#{$scale} / 2);
   }
 
   highlight,
   progress {
     background: $overlay;
     border-radius: $scale;
-    margin: 0 calc(0px - $scale / 2);
+    margin: 0 calc(0px - #{$scale} / 2);
     min-height: $scale;
   }
 }

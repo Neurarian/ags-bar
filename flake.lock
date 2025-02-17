@@ -1,0 +1,107 @@
+{
+  "nodes": {
+    "ags": {
+      "inputs": {
+        "astal": "astal",
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1738087375,
+        "narHash": "sha256-GLyNtU9A2VN22jNRHZ2OXuFfTJLh8uEVVt+ftsKUX0c=",
+        "owner": "aylur",
+        "repo": "ags",
+        "rev": "a6a7a0adb17740f4c34a59902701870d46fbb6a4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "aylur",
+        "repo": "ags",
+        "type": "github"
+      }
+    },
+    "astal": {
+      "inputs": {
+        "nixpkgs": [
+          "ags",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1739784829,
+        "narHash": "sha256-D64mquBG3hQjd1VAkSSjaTqxSCIP9Dly08GWdekSmqI=",
+        "owner": "aylur",
+        "repo": "astal",
+        "rev": "bfa376a3468f7c657e46a87c61ea7e9d8c6336b4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "aylur",
+        "repo": "astal",
+        "rev": "bfa376a3468f7c657e46a87c61ea7e9d8c6336b4",
+        "type": "github"
+      }
+    },
+    "astal_2": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1739784829,
+        "narHash": "sha256-D64mquBG3hQjd1VAkSSjaTqxSCIP9Dly08GWdekSmqI=",
+        "owner": "aylur",
+        "repo": "astal",
+        "rev": "bfa376a3468f7c657e46a87c61ea7e9d8c6336b4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "aylur",
+        "repo": "astal",
+        "rev": "bfa376a3468f7c657e46a87c61ea7e9d8c6336b4",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1737469691,
+        "narHash": "sha256-nmKOgAU48S41dTPIXAq0AHZSehWUn6ZPrUKijHAMmIk=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "9e4d5190a9482a1fb9d18adf0bdb83c6e506eaab",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1739736696,
+        "narHash": "sha256-zON2GNBkzsIyALlOCFiEBcIjI4w38GYOb+P+R4S8Jsw=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "d74a2335ac9c133d6bbec9fc98d91a77f1604c1f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "ags": "ags",
+        "astal": "astal_2",
+        "nixpkgs": "nixpkgs_2"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
