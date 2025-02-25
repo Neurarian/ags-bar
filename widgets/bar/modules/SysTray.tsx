@@ -1,21 +1,25 @@
-import { Astal, Gdk } from "astal/gtk3";
+import { Astal, Gtk, Gdk } from "astal/gtk3";
 import Tray from "gi://AstalTray";
 import { bind } from "astal";
 
 function SysTrayItem({ item }) {
-    return <menubutton
-        className="tray-item"
-        menuModel={bind(item, "menuModel")}
-        actionGroup={bind(item, "actionGroup").as((ag) => ["dbusmenu", ag])}
-        usePopover={false}
-        onButtonReleaseEvent={(self, event) => {
+    let menuButtonRef = null;
+    return <button
+        setup={self => {
+            // Store a reference to the button for later use
+            menuButtonRef = self.get_child();
+        }}
+        onClick={(self, event) => {
             try {
-                if (event.get_button()[1] === Astal.MouseButton.PRIMARY) {
+                const button = event.button;
+
+                if (button === Astal.MouseButton.PRIMARY) {
                     item.activate(event.x, event.y);
                 }
-                if (event.get_button()[1] === Astal.MouseButton.SECONDARY) {
-                    self.get_popup()?.popup_at_widget(
-                        self,
+                if (button === Astal.MouseButton.SECONDARY) {
+                    print(menuButtonRef.get_popup())
+                    menuButtonRef.get_popup()?.popup_at_widget(
+                        menubuttonRef,
                         Gdk.Gravity.NORTH,
                         Gdk.Gravity.SOUTH,
                         null
@@ -25,10 +29,18 @@ function SysTrayItem({ item }) {
             } catch (error) {
                 console.log(error);
             }
-        }}
-        tooltipMarkup={bind(item, "tooltipMarkup")}>
-        <icon gicon={bind(item, "gicon")} />
-    </menubutton>;
+        }}>
+        <menubutton
+
+            className="tray-item"
+            menuModel={bind(item, "menuModel")}
+            actionGroup={bind(item, "actionGroup").as((ag) => ["dbusmenu", ag])}
+            usePopover={false}
+            tooltipMarkup={bind(item, "tooltipMarkup")}>
+
+            <icon gicon={bind(item, "gicon")} />
+        </menubutton>
+    </button >;
 }
 
 export default function SysTray() {

@@ -2,6 +2,7 @@ import { App } from "astal/gtk3"
 import { monitorFile } from "astal/file"
 import { exec } from "astal/process"
 import Bar from "./widgets/bar/main.tsx"
+import Notifications from "./widgets/notifications/popups.tsx"; 
 const css = "./style.css";
 const scss = "./style.scss";
 
@@ -23,6 +24,7 @@ App.start({
     main() {
         exec(`sass ${scss} ${css}`);
         monitorFile(`./style/material.scss`, reloadCss);
-        App.get_monitors().map(Bar)
+        App.get_monitors().map(Bar);
+        Notifications();
     },
 })

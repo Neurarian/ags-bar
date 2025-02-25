@@ -1,57 +1,68 @@
 .notification {
-  @include window;
-  margin: 5px 5px 5px 10px;
-
-  min-width: 25rem;
-
-  border-radius: $round2;
-  background-color: $bg;
-
-  &.critical {
-    border: 1px solid red;
-  }
-}
-
-.notifications widget:last-child .notification {
-  margin-bottom: 15px;
-}
-
-.notification .icon {
-  image {
-    font-size: 5rem;
-    margin: 0.5rem;
-    min-height: 5rem;
-    min-width: 5rem;
-  }
-
+  // Eventboxes can't have margins, style the inner box instead
   > box {
-    border-radius: $round;
-    margin: 0.5rem;
-    min-height: 5rem;
-    min-width: 5rem;
+    margin: 5px 5px 5px 10px;
+    min-width: 25rem;
+    border-radius: $round2;
+    background-color: $bg;
+    border: 1px solid transparent;
+
+    // Critical notification style
+    .notification.critical & {
+      border: 1px solid red;
+    }
   }
-}
 
-.notification .actions .action-button {
-  @include window-box;
-  @include animate;
-  padding: 0.5rem 0;
+  // Icon styling
+  .icon {
+    > box { // Image container
+      border-radius: $round;
+      margin: 0.5rem;
+      min-height: 5rem;
+      min-width: 5rem;
+      background-size: contain;
+    }
 
-  &:hover {
-    background: $button-disabled-hover;
+    icon { // Icon element
+      font-size: 5rem;
+      margin: 0.5rem;
+      min-height: 5rem;
+      min-width: 5rem;
+    }
   }
-}
 
-.notification .text {
-  margin: 0.5rem;
+  // Text content
+  .text {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+
+  .app-name {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: transparentize($fg, 0.7);
+    margin-right: 0.75rem;
+  }
 
   .title {
-    margin-bottom: 0.2rem;
-    font-weight: 500;
-  }
-
-  .body {
+    font-size: 1rem;
     color: $fg;
-    font-weight: 500;
+  }
+  .body {
+    padding: 0.5rem;
+    color: transparentize($fg, 0.4);
+  }
+}
+
+  // Action buttons
+  .actions {
+    .action-button {
+      @include window-box;
+      @include animate;
+      padding: 0.5rem 0;
+
+      &:hover {
+        background: $button-disabled-hover;
+      }
+    }
   }
 }
