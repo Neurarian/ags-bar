@@ -9,8 +9,7 @@ const scss = "./style.scss";
 function reloadCss() {
     console.log("scss change detected");
     exec(`sass ${scss} ${css}`);
-    App.resetCss();
-    App.applyCss(css);
+    App.apply_css(css);
 }
 
 App.start({
@@ -23,7 +22,7 @@ App.start({
     },
     main() {
         exec(`sass ${scss} ${css}`);
-        monitorFile(`./style/material.scss`, reloadCss);
+        monitorFile(`./style`, reloadCss);
         App.get_monitors().map(Bar);
         Notifications();
     },
