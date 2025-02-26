@@ -3,7 +3,8 @@ import Notifd from "gi://AstalNotifd";
 import Hyprland from "gi://AstalHyprland";
 import { GLib, bind } from "astal";
 
-const TIMEOUT_DELAY = 5000;
+const TIMEOUT_DELAY = 500000;
+const { START, CENTER, END } = Gtk.Align
 
 const fileExists = (path: string) =>
 	GLib.file_test(path, GLib.FileTest.EXISTS)
@@ -11,9 +12,41 @@ const fileExists = (path: string) =>
 const isIcon = (icon: string) =>
 	!!Astal.Icon.lookup_icon(icon)
 
+const urgency = (notification: Notifd.Notification) => {
+	const { LOW, NORMAL, CRITICAL } = Notifd.Urgency
+
+	switch (notification.urgency) {
+		case LOW: return "low"
+		case CRITICAL: return "critical"
+		case NORMAL:
+		default: return "normal"
+	}
+}
+
+function NotificationIcon(notification: Notifd.Notification) {
+	if (notification.image && fileExists(notification.image)) {
+		return <box css={`background-image: url("${notification.image} background-size: contain; background-repeat: no-repeat; background-position: center;");`}
+		/>;
+	}
+	if (notification.image && isIcon(notification.image)) {
+		return <box
+			expand={false}
+			valign={CENTER}>
+			<icon icon={notification.image} />
+		</box>
+	}
+	if (notification.appIcon || notification.desktopEntry) {
+		return <box
+			expand={false}
+			valign={CENTER}>
+			<icon icon={notification.appIcon || notification.desktopEntry} />
+		</box>
+	}
+	return null;
+}
+
 function NotificationWidget(props: { notification: Notifd.Notification }) {
 	const { notification } = props;
-	const { START, CENTER, END } = Gtk.Align
 	const actions = notification.actions || [];
 
 	// Track if the notification is being hovered
@@ -49,7 +82,7 @@ function NotificationWidget(props: { notification: Notifd.Notification }) {
 					timeoutId = null;
 				}
 			})
-			}}
+		}}
 		onHover={() => {
 			isHovered = true;
 			// Clear timeout when hovering
@@ -65,7 +98,6 @@ function NotificationWidget(props: { notification: Notifd.Notification }) {
 		}}
 		onClick={(self, event) => {
 			try {
-				print(notification.body)
 				const button = event.button;
 
 				if (button === Gdk.BUTTON_PRIMARY) {
@@ -85,36 +117,59 @@ function NotificationWidget(props: { notification: Notifd.Notification }) {
 			}
 		}}
 	>
-		<box className={`notification ${notification.urgency}`}>
-			<box className="info">
-				<box className="icon">
-					{notification.image && fileExists(notification.image) && <box
-						valign={START}
-						css={`background-image: url('${notification.image}')`}
-					/>}
-					{notification.image && isIcon(notification.image) && <box
-						expand={false}
-						valign={START}>
-						<icon icon={notification.image} expand halign={CENTER} valign={CENTER} />
-					</box>}
+		<box vertical className={`notification ${urgency(notification)}`}>
+			<box className="header">
+				<label className="app-name"
+					halign={CENTER}
+					label={bind(notification, "app_name")} />
+				{(notification.appIcon || notification.desktopEntry) && <icon
+					className="app-icon"
+					halign={END}
+					visible={Boolean(notification.appIcon || notification.desktopEntry)}
+					icon={notification.appIcon || notification.desktopEntry}
+					hexpand
+				/>}
+			</box>
+			<Gtk.Separator visible />
+			<box horizontal className="content">
+				<box horizontal
+					className="thumb"
+					visible={Boolean(NotificationIcon(notification))}
+					halign={CENTER}
+					valign={CENTER}
+					vexpand={true}>
+					{NotificationIcon(notification)}
 				</box>
-				<box className="text">
-					<label className="app-name" label={bind(notification, "app_name")} />
-					<label className="title" label={bind(notification, "summary")} />
+				<box vertical className="text-content"
+					hexpand={true}
+					halign={CENTER}
+					valign={CENTER}>
+					<label className="title"
+						valign={CENTER}
+						wrap={true}
+						maxWidthChars={20}
+						justification="left"
+						label={bind(notification, "summary")} />
 					{notification.body &&
-						<label className="body" label={bind(notification, "body")} />
+						<label className="body"
+							valign={CENTER}
+							wrap={true}
+							maxWidthChars={50}
+							label={bind(notification, "body")} />
 					}
 				</box>
-				{actions.length > 0 && <box className="actions">
-					{actions.map(action =>
-						<button
-							className="action-button"
-							onClicked={() => notification.invoke(action)}
-							label={action}
-						/>
-					)}
-				</box>}
 			</box>
+			{actions.length > 0 &&
+				<box className="actions" >
+					{actions.map((label, action) =>
+						<button hexpand
+							className="action-button"
+							onClicked={() => notification.invoke(action)}>
+							<label label={label} halign={CENTER} hexpand />
+						</button>
+					)}
+				</box>
+			}
 		</box>
 	</eventbox>;
 }
