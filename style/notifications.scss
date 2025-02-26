@@ -13,12 +13,12 @@
 
   .header {
 
-    .app-icon {
-      min-width: 24px;
-      min-height: 24px;
-    }
-
     .app-name {
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: transparentize($fg, 0.3);
+    }
+    .time {
       font-size: 0.9rem;
       font-weight: bold;
       color: transparentize($fg, 0.3);

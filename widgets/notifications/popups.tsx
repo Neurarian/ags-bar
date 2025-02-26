@@ -12,6 +12,10 @@ const fileExists = (path: string) =>
 const isIcon = (icon: string) =>
 	!!Astal.Icon.lookup_icon(icon)
 
+const time = (time: number, format = "%H:%M") => GLib.DateTime
+	.new_from_unix_local(time)
+	.format(format)!
+
 const urgency = (notification: Notifd.Notification) => {
 	const { LOW, NORMAL, CRITICAL } = Notifd.Urgency
 
@@ -122,14 +126,13 @@ function NotificationWidget(props: { notification: Notifd.Notification }) {
 				<label className="app-name"
 					halign={CENTER}
 					label={bind(notification, "app_name")} />
-				{(notification.appIcon || notification.desktopEntry) && <icon
-					className="app-icon"
-					halign={END}
-					visible={Boolean(notification.appIcon || notification.desktopEntry)}
-					icon={notification.appIcon || notification.desktopEntry}
+				<label
+					className="time"
 					hexpand
-				/>}
-			</box>
+					halign={END}
+					label={time(notification.time)}
+				/>
+				</box>
 			<Gtk.Separator visible />
 			<box horizontal className="content">
 				<box horizontal
