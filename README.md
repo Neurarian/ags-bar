@@ -1,2 +1,3 @@
 AGSv2 / Astal work in progress branch
-Status bar is fully functional, but additional widgets are still missing.
+
+Status bar is fully functional on Astal. Only the music player is still missing.
