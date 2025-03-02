@@ -1,9 +1,9 @@
 import { Astal, Gtk, Gdk } from "astal/gtk3";
 import Notifd from "gi://AstalNotifd";
-import Hyprland from "gi://AstalHyprland";
 import { GLib, bind } from "astal";
+import { focusedGdkMonitor } from "../../utils/hyprland.ts";
 
-const TIMEOUT_DELAY = 500000;
+const TIMEOUT_DELAY = 5000;
 const { START, CENTER, END } = Gtk.Align
 
 const fileExists = (path: string) =>
@@ -179,8 +179,6 @@ function NotificationWidget(props: { notification: Notifd.Notification }) {
 
 export default function Notifications() {
 	const notifd = Notifd.get_default();
-	const hypr = Hyprland.get_default();
-	const display = Gdk.Display.get_default()!;
 	const { TOP, RIGHT } = Astal.WindowAnchor
 
 	// Get the focused monitor from Hyprland and convert to a GDK monitor
@@ -188,16 +186,6 @@ export default function Notifications() {
 	// I did not find a more elegant solution to this. 
 	// On my setup GDK coordinates and hyprland coordinates are flipped,
 	// so I cant match by coordinates.
-	const focusedGdkMonitor = bind(hypr, "focused-monitor").as(focused => {
-		const hyprModel = focused.get_model();
-		const nMon = display.get_n_monitors();
-		for (let i = 0; i < nMon; i++) {
-			const gdkMon = display.get_monitor(i);
-			if (gdkMon.get_model() === hyprModel) {
-				return gdkMon;
-			}
-		}
-	});
 
 	return <window
 		name="notifications"

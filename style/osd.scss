@@ -3,10 +3,10 @@
   border-radius: 3rem;
   box-shadow: none;
   margin-bottom: 5rem;
-  padding: 0.5rem;
+  padding: 1rem;
 
-  image {
-    font-size: 5rem;
+  icon {
+    font-size: 4rem;
     margin: 0.5rem;
   }
 
@@ -18,8 +18,16 @@
     margin: 0 0 0.5rem;
   }
 
-  progressbar trough {
-    margin: 0.5rem 0.5rem 0;
-    min-width: 20rem;
+  levelbar {
+    trough {
+      margin: 0.5rem 0.5rem ;
+    }
+    block {
+      min-height: 1rem;
+    }
+    block.filled {
+      border-radius: 1.5rem;
+      background-color: $fg;
+    }
   }
 }

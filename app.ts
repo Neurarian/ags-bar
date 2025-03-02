@@ -2,7 +2,8 @@ import { App } from "astal/gtk3"
 import { monitorFile } from "astal/file"
 import { exec } from "astal/process"
 import Bar from "./widgets/bar/main.tsx"
-import Notifications from "./widgets/notifications/popups.tsx"; 
+import OnScreenDisplay from "./widgets/osd/main.tsx"
+import Notifications from "./widgets/notifications/popups.tsx";
 const css = "./style.css";
 const scss = "./style.scss";
 
@@ -25,5 +26,6 @@ App.start({
         monitorFile(`./style`, reloadCss);
         App.get_monitors().map(Bar);
         Notifications();
+        OnScreenDisplay();
     },
 })
