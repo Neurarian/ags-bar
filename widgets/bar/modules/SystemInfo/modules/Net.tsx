@@ -3,8 +3,7 @@ import Network from "gi://AstalNetwork";
 
 export default function Net() {
 
-    const getNetIcon = (conn, net) => {
-        if (conn == 1) return "";
+    const getNetIcon = (net) => {
         if (net.primary == 1) return "network-wired-symbolic";
 
         return net.wifi.icon_name;
@@ -32,7 +31,7 @@ export default function Net() {
     return <icon
         className="net module"
         icon={bind(network, "connectivity").as(connectivity =>
-            `${getNetIcon(connectivity, network)}`
+            `${getNetIcon(network)}`
         )}
         tooltipText={bind(network, "connectivity").as(connectivity =>
             `${getNetText(connectivity, network)}`

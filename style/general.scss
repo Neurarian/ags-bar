@@ -102,6 +102,6 @@ progressbar {
   @include button-active;
 }
 
-.button.disabled {
+.button-disabled {
   @include button;
 }

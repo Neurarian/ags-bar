@@ -4,6 +4,7 @@ import { exec } from "astal/process"
 import Bar from "./widgets/bar/main.tsx"
 import OnScreenDisplay from "./widgets/osd/main.tsx"
 import Notifications from "./widgets/notifications/popups.tsx";
+import SystemMenu from "./widgets/system-menu/main.tsx"
 const css = "./style.css";
 const scss = "./style.scss";
 
@@ -27,5 +28,6 @@ App.start({
         App.get_monitors().map(Bar);
         Notifications();
         OnScreenDisplay();
+        SystemMenu();
     },
 })

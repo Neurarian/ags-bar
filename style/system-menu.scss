@@ -16,7 +16,7 @@
     margin-bottom: 0.3rem;
   }
 
-  .button {
+  button {
     margin-right: 0.5rem;
   }
 }
@@ -29,7 +29,7 @@
     padding: 0.3rem;
   }
 
-  image,
+  icon,
   label {
     margin: 0.3rem;
   }
@@ -54,12 +54,19 @@
 
 /* sliders */
 .system-menu .sliders {
-  image {
+  min-height: 0.5rem;
+  icon {
     margin: 0.3rem;
   }
-
-  scale {
-    margin: 0 0.5rem;
+  trough {
+    margin: 0.5rem 0.5rem ;
+  }
+  block {
+    min-height: 0.5rem;
+    filled {
+      border-radius: 1.5rem;
+      background-color: $fg;
+    }
   }
 }
 
