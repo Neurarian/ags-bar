@@ -45,8 +45,6 @@ function OnScreenProgress({ visible }: { visible: Variable<boolean> }) {
 		});
 	};
 
-
-
 	return (
 		<revealer
 			transitionType={Gtk.RevealerTransitionType.CROSSFADE}

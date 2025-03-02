@@ -13,14 +13,17 @@ export default function Blue() {
         if (!bt.is_powered) return "Bluetooth off";
 
         if (bt.is_connected) {
-            const dev = devs[0]
-            let battery_str = "";
 
-            if (dev.battery_percentage > 0) {
-                battery_str += ` ${dev.battery_percentage}%`;
+            for (const dev of devs) {
+                if (dev.connected) {
+                    let battery_str = "";
+
+                    if (dev.battery_percentage > 0) {
+                        battery_str = ` ${dev.battery_percentage}%`;
+                    }
+                    return `${dev.name} ${battery_str}`;
+                }
             }
-
-            return dev.name + battery_str;
         }
 
         return "Bluetooth on";
