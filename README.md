@@ -76,7 +76,7 @@ $HOME/.config/astal/scripts/colorgen.sh "$HOME/.cache/current_wallpaper.jpg" --a
 ```
 
 The color generation works better with wallpapers that have a bit of contrast.
-For a NixOS implementation and example [scripts](https://github.com/Neurarian/NixOS-config/blob/master/home/Liqyid/common/scripts/wal_set.nix) for use with hyprpaper, check my [NixOS-config](https://github.com/Neurarian/NixOS-config).
+For a NixOS implementation and example [script](https://github.com/Neurarian/NixOS-config/blob/master/home/Liqyid/common/optional/scripts/wal_set.nix) for use with hyprpaper, matugen, and a [custom cli utility](https://github.com/Neurarian/NixOS-config/tree/master/packages/image-hct) to get chroma/tone, check my [NixOS-config](https://github.com/Neurarian/NixOS-config).
 
 ______________________________________________________________________
 
