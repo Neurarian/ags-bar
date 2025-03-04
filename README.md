@@ -63,7 +63,7 @@ git clone https://github.com/Neurarian/matshell
 mv ags-bar ~/.config/astal
 ```
 
-For the color generation to work, run this command to create the necessary additional directories:
+For the color generation with the end-4-scripts to work, run this command to create the necessary additional directories:
 
 ```console
 mkdir -p $XDG_STATE_HOME/astal/{scss,user} $XDG_CACHE_HOME/astal/user/generated
