@@ -5,7 +5,7 @@ import { mprisStateIcon } from "../../../utils/mpris"
 
 export function Controls({ player }: { player: Mpris.Player }) {
 	return (
-		<centerbox className="controls">
+		<centerbox className="controls" vexpand={true}>
 			<button onClick={() => player.previous()}>
 				<icon icon="media-skip-backward-symbolic" />
 			</button>

@@ -5,6 +5,7 @@ export function Title({ player }: { player: Mpris.Player }) {
 	return (
 		<scrollable
 			vexpand={true}
+			heightRequest={12}
 			className="title"
 			vscroll={"never"}
 			hscroll={"automatic"}>

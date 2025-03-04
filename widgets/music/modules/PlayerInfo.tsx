@@ -5,7 +5,7 @@ import { bind } from "astal"
 export function PlayerInfo({ player }: { player: Mpris.Player }) {
 const { START, END } = Gtk.Align
 	return (
-		<box className="player-info" halign={START} >
+		<box className="player-info" halign={END} >
 			<icon
 				className="player-icon"
 				halign={END}
