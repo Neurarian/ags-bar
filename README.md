@@ -54,7 +54,7 @@ ______________________________________________________________________
 Clone this repo...
 
 ```console
-git clone https://github.com/Neurarian/ags-bar
+git clone https://github.com/Neurarian/matshell
 ```
 
 ... and link/move/copy its content into ~/.config/astal or your stowed ags dotfiles directory. E.g.
