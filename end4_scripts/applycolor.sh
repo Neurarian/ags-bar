@@ -3,9 +3,9 @@
 XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
 XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
-CONFIG_DIR="$XDG_CONFIG_HOME/ags"
-CACHE_DIR="$XDG_CACHE_HOME/ags"
-STATE_DIR="$XDG_STATE_HOME/ags"
+CONFIG_DIR="$XDG_CONFIG_HOME/astal"
+CACHE_DIR="$XDG_CACHE_HOME/astal"
+STATE_DIR="$XDG_STATE_HOME/astal"
 
 term_alpha=100 #Set this to < 100 make all your terminals transparent
 # sleep 0 # idk i wanted some delay or colors dont get applied properly
@@ -165,12 +165,8 @@ apply_gtk() { # Using gradience-cli
     fi
 }
 
-apply_ags() {
-    #sass -I "$STATE_DIR/scss" -I "$CONFIG_DIR/style/fallback" "$CONFIG_DIR"/style/main.scss "$CACHE_DIR"/user/generated/style.css
-    #ags run-js 'openColorScheme.value = true; Utils.timeout(2000, () => openColorScheme.value = false);'
-    #ags run-js "App.resetCss(); App.applyCss('${CACHE_DIR}/user/generated/style.css');"
+apply_astal() {
     cp "$STATE_DIR"/scss/_material.scss "$CONFIG_DIR"/style/material.scss
-
 }
 
 if [[ "$1" = "--bad-apple" ]]; then
@@ -189,7 +185,7 @@ else
     colorvalues=( $colorstrings ) # Array of color values
 fi
 
-apply_ags &
+apply_astal &
 apply_wlogout &
 apply_hyprland &
 apply_hyprlock &

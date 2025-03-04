@@ -3,9 +3,9 @@
 XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
 XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
-CONFIG_DIR="$XDG_CONFIG_HOME/ags"
-CACHE_DIR="$XDG_CACHE_HOME/ags"
-STATE_DIR="$XDG_STATE_HOME/ags"
+CONFIG_DIR="$XDG_CONFIG_HOME/astal"
+CACHE_DIR="$XDG_CACHE_HOME/astal"
+STATE_DIR="$XDG_STATE_HOME/astal"
 
 # check if no arguments
 if [ $# -eq 0 ]; then
@@ -33,7 +33,7 @@ else
     transparency=$(sed -n '2p' $colormodefile)
     materialscheme=$(sed -n '3p' $colormodefile)
     if [ "$materialscheme" = "monochrome" ]; then
-      terminalscheme="$XDG_CONFIG_HOME/ags/scripts/templates/terminal/scheme-monochrome.json"
+      terminalscheme="$XDG_CONFIG_HOME/astal/scripts/templates/terminal/scheme-monochrome.json"
     fi
 fi
 backend="material" # color generator backend

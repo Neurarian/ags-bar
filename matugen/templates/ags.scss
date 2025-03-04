@@ -1,0 +1,45 @@
+/*
+* Css Colors
+* Generated with Matugen
+*/
+<* for name, value in colors *>
+${{name}}: {{value.default.rgba}};
+<* endfor *>
+
+$red:                  #d17678;
+$accent_green:         #afbea2;
+
+$primaryMon:           $primary_container;
+$primaryMonHover:      mix($primary_container, $on_primary_container, 30%);
+$primaryMonActive:     mix($primary_container, $on_primary_container, 100%);
+$secondaryMon:         $tertiary_container;
+$thirdMon:             $tertiary;
+$fourthMon:            $secondary;
+
+$tooltipBg:            $background;
+$fg:                   $on_background;
+$bg:                   transparentize($background, .5);
+$barBg:                transparentize($background, .5);
+
+$surface:              transparentize($surface_bright, .6);
+$overlay:              transparentize($on_surface, .25);
+
+$accent:               $tertiary_container;
+
+/* buttons */
+$buttonEnabled:        $accent;
+$buttonEnabledHover:   adjust_color($buttonEnabled, $lightness: -15%);
+
+$buttonDisabled:       $surface;
+$buttonDisabledHover:  adjust_color($buttonDisabled, $alpha: +0.8);
+
+* {
+  text-shadow: 0 2px 3px transparentize($background, .8);
+}
+
+@mixin border {
+  // border: 1px solid transparentize($background, .9);
+  box-shadow:
+    // inset 0 0 0 1px transparentize($background, .9),
+    0 3px 5px 1px transparentize($background, .9);
+}
