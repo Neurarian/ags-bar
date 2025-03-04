@@ -69,7 +69,7 @@ For the color generation with the end-4-scripts to work, run this command to cre
 mkdir -p $XDG_STATE_HOME/astal/{scss,user} $XDG_CACHE_HOME/astal/user/generated
 ```
 
-After using pywal together with hyprpaper or some other means to set your wallpaper, run the script from [end-4](https://github.com/end-4/dots-hyprland) like this:
+After using hyprpaper or some other means to set your wallpaper, run the script from [end-4](https://github.com/end-4/dots-hyprland) like this:
 
 ```console
 $HOME/.config/astal/scripts/colorgen.sh "$HOME/.cache/current_wallpaper.jpg" --apply --smart
