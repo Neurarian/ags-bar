@@ -1,6 +1,12 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+    };
+    systems = {
+      url = "systems";
+    };
     astal = {
       url = "github:aylur/astal?rev=bfa376a3468f7c657e46a87c61ea7e9d8c6336b4";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -15,50 +21,62 @@
     self,
     nixpkgs,
     astal,
+    flake-parts,
+    systems,
     ags,
-  }: let
-    system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
-  in {
-    packages.${system}.default = pkgs.stdenvNoCC.mkDerivation rec {
-      name = "my-shell";
-      src = ./.;
+  } @ inputs: let
+    mkPkgs = system:
+      import nixpkgs {
+        inherit system;
+      };
+  in
+    flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = import systems;
 
-      nativeBuildInputs = [
-        ags.packages.${system}.default
-        pkgs.wrapGAppsHook
-        pkgs.gobject-introspection
-        pkgs.typescript
-        pkgs.dart-sass
-        pkgs.mission-center
-        pkgs.imagemagick_light
-      ];
+      perSystem = {system, ...}: let
+        pkgs = mkPkgs system;
+        name = "matshell";
+      in {
+        packages.default = pkgs.stdenvNoCC.mkDerivation {
+          src = ./.;
+          inherit name;
+          entry = "app.ts";
 
-      buildInputs = with astal.packages.${system}; [
-        notifd
-        hyprland
-        wireplumber
-        battery
-        mpris
-        network
-        tray
-        bluetooth
-        cava
-        # any other package
-      ];
+          nativeBuildInputs = with pkgs; [
+            ags.packages.${system}.default
+            wrapGAppsHook
+            gobject-introspection
+            typescript
+            dart-sass
+            mission-center
+            imagemagick_light
+          ];
 
-      installPhase = ''
-        mkdir -p $out/bin
-        ags bundle app.ts $out/bin/${name}
-        chmod +x $out/bin/${name}
-      '';
-    };
+          buildInputs = with astal.packages.${system}; [
+            notifd
+            hyprland
+            wireplumber
+            mpris
+            network
+            tray
+            bluetooth
+            cava
+            # any other package
+          ];
 
-    devShells.${system}.default = pkgs.mkShell {
-      nativeBuildInputs = with self.packages.${system}; default.nativeBuildInputs;
-      inputsFrom = builtins.attrValues {
-        inherit (self.packages.${system}) default;
+          installPhase = ''
+            mkdir -p $out/bin
+            ags bundle app.ts $out/bin/${name}
+            chmod +x $out/bin/${name}
+          '';
+        };
+
+        devShells.default = pkgs.mkShell {
+          nativeBuildInputs = with self.packages.${system}; default.nativeBuildInputs;
+          inputsFrom = builtins.attrValues {
+            inherit (self.packages.${system}) default;
+          };
+        };
       };
     };
-  };
 }
