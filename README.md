@@ -60,7 +60,7 @@ git clone https://github.com/Neurarian/matshell
 ... and link/move/copy its content into ~/.config/astal or your stowed ags dotfiles directory. E.g.
 
 ```console
-mv ags-bar ~/.config/astal
+mv matshell ~/.config/astal
 ```
 
 For the color generation with the end-4-scripts to work, run this command to create the necessary additional directories:
