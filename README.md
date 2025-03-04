@@ -35,8 +35,8 @@ ______________________________________________________________________
   - python-setuptools-scm
   - python-wheel
 - ***For matugen:***
-- matugen
-- [image-hct](https://github.com/Neurarian/NixOS-config/tree/master/packages/image-hct) (optional; for additional chroma/tone based theming)
+  - matugen
+  - [image-hct](https://github.com/Neurarian/NixOS-config/tree/master/packages/image-hct) (optional; for additional chroma/tone based theming)
 
 #### Not required but launched by Astal widgets:
 
