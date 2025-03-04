@@ -132,9 +132,9 @@
     }
   }
   .bar-hardware-progress-circle {
-    min-width: 2rem;
+    min-width: 2.2rem;
     min-height: 1.3rem;
-    font-size: 0.3rem;
+    font-size: 0.35rem;
     background: transparentize($surfaceDim, 0.5);
   }
 
@@ -167,11 +167,25 @@
   .bar-hw-ram-box{
     margin-right: 0.4rem;
     margin-left: 0.3rem;
+    button{
+      label {
+        margin: 0px 0px 0px 4px;
+        font-family: 'Material Symbols Outlined';
+        font-size: 1.2rem;
+      }
+    }
   }
 
   .bar-hw-cpu-box {
     margin-left: 0.4rem;
     margin-right: 0.3rem;
+    button{
+      label {
+        margin: 0px 0px 0px 5px;
+        font-family: 'Material Symbols Outlined';
+        font-size: 1.3rem;
+      }
+    }
   }
   .separator {
     font-size: 1.8rem;

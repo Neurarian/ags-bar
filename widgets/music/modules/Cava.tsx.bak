@@ -1,0 +1,95 @@
+
+import GObject from "gi://GObject";
+import Gtk from "gi://Gtk?version=3.0";
+import Gdk from "gi://Gdk?version=3.0";
+import Cairo from "gi://cairo";
+import AstalCava from "gi://AstalCava";
+
+// Extended type declarations for GTK3
+declare global {
+	namespace Gtk {
+		interface Widget {
+			connect(signal: string, callback: (...args: any[]) => void): number;
+			queue_draw(): void;
+		}
+
+		interface DrawingArea extends Widget { }
+	}
+}
+
+class CavaWidget extends Gtk.DrawingArea {
+	static {
+		GObject.registerClass({
+			GTypeName: "CavaWidget",
+			CssName: "cava",
+		}, this);
+	}
+
+	private cava: AstalCava.Cava;
+	private color = new Gdk.RGBA();
+
+	constructor() {
+		super();
+		this.cava = AstalCava.get_default();
+		this.color.parse("#FFFFFF");
+
+		// Connect with proper typing and parameter handling
+		this.connect("draw", (_widget: Gtk.DrawingArea, cr: Cairo.Context) => {
+			this.draw(cr);
+			return false;
+		});
+
+		this.cava.connect("notify::values", () => {
+			this.queue_draw();
+		});
+	}
+
+	private draw(cr: Cairo.Context): boolean {
+		const width = (this as any).get_width() as number;
+		const height = (this as any).get_height() as number;
+
+		const values = this.cava.get_values();
+		const bars = this.cava.bars;
+
+		if (bars === 0 || values.length === 0) return false;
+
+		cr.setSourceRGBA(
+			this.color.red,
+			this.color.green,
+			this.color.blue,
+			this.color.alpha
+		);
+
+		const barWidth = width / (bars - 1);
+		let lastX = 0;
+		let lastY = height - height * values[0];
+
+		cr.moveTo(lastX, lastY);
+
+		for (let i = 1; i < bars; i++) {
+			const h = height * values[i];
+			const y = height - h;
+
+			cr.curveTo(
+				lastX + barWidth / 2, lastY,
+				lastX + barWidth / 2, y,
+				i * barWidth, y
+			);
+
+			lastX = i * barWidth;
+			lastY = y;
+		}
+
+		cr.lineTo(lastX, height);
+		cr.lineTo(0, height);
+		cr.closePath();
+		cr.fill();
+
+		return false;
+	}
+}
+
+export default function CavaVisualizer() {
+	return new CavaWidget();
+}
+

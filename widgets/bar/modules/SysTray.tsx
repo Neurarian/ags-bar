@@ -4,12 +4,18 @@ import { bind } from "astal";
 
 function SysTrayItem({ item }) {
     let menuButtonRef = null;
-    return <button
+    return <menubutton
+
+        className="tray-item"
+        menuModel={bind(item, "menuModel")}
+        actionGroup={bind(item, "actionGroup").as((ag) => ["dbusmenu", ag])}
+        usePopover={false}
+        tooltipMarkup={bind(item, "tooltipMarkup")}
         setup={self => {
             // Store a reference to the button for later use
             menuButtonRef = self.get_child();
         }}
-        onClick={(self, event) => {
+        onClicked={(self, event) => {
             try {
                 const button = event.button;
 
@@ -30,17 +36,8 @@ function SysTrayItem({ item }) {
                 console.log(error);
             }
         }}>
-        <menubutton
-
-            className="tray-item"
-            menuModel={bind(item, "menuModel")}
-            actionGroup={bind(item, "actionGroup").as((ag) => ["dbusmenu", ag])}
-            usePopover={false}
-            tooltipMarkup={bind(item, "tooltipMarkup")}>
-
-            <icon gicon={bind(item, "gicon")} />
-        </menubutton>
-    </button >;
+        <icon gicon={bind(item, "gicon")} />
+    </menubutton>
 }
 
 export default function SysTray() {

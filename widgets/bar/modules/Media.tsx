@@ -1,3 +1,4 @@
+import { App } from "astal/gtk3"
 import Mpris from "gi://AstalMpris";
 import { bind } from "astal";
 
@@ -29,12 +30,13 @@ function MusicBox({ player }) {
 export default function Media() {
     const mpris = Mpris.get_default()
 
-    return <box
+    return <eventbox
         className="Media"
+        onClick={() => App.toggle_window("music-player")}
         visible={bind(mpris, "players").as(players => players.length > 0)}
     >
         {bind(mpris, "players").as(players => players[0] && (
             <MusicBox player={players[0]} />
         ))}
-    </box>
+    </eventbox>
 }

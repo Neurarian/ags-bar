@@ -29,8 +29,9 @@
         pkgs.wrapGAppsHook
         pkgs.gobject-introspection
         pkgs.typescript
-        pkgs.sass
+        pkgs.dart-sass
         pkgs.mission-center
+        pkgs.imagemagick_light
       ];
 
       buildInputs = with astal.packages.${system}; [
@@ -42,6 +43,7 @@
         network
         tray
         bluetooth
+        cava
         # any other package
       ];
 

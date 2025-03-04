@@ -33,7 +33,7 @@ export default function Workspaces() {
                         `${ws === fw && "focused"}
                          ${ws !== undefined && `monitor${ws.monitor.id}`}`
                     )}
-                    onClicked={() => ws.focus()}>
+                    onClicked={() =>hypr.message(`dispatch workspace ${id}`)}>
                     {}
                 </button>;
             });

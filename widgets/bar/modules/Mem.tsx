@@ -48,10 +48,8 @@ export default function Mem() {
                         console.error('Error:', error);
                     }
                 }}
-                xalign={0.7}
-                yalign={0.49}
-                label={'  '}
-            />
+                label={'memory_alt'}>
+            </button>
         </circularprogress>
     </box>;
 }

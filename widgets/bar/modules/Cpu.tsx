@@ -31,7 +31,7 @@ export default function Cpu() {
     });
 
     return <box
-        className={"bar-hw-ram-box"}
+        className={"bar-hw-cpu-box"}
     >
         <circularprogress
             className="cpu"
@@ -50,9 +50,7 @@ export default function Cpu() {
                         console.error('Error:', error);
                     }
                 }}
-                xalign={0.3}
-                yalign={0.49}
-                label=' '
+                label='memory'
             />
         </circularprogress>
     </box >;
