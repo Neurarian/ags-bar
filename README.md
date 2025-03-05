@@ -1,6 +1,7 @@
 # Simple Material Design desktop shell made with [Astal](https://github.com/Aylur/astal)
 
 This is heavily inspired by [fufexan's](https://github.com/fufexan/dotfiles) AGSv1 config, tailored to personal taste and my multi-monitor desktop setup on [hyprland](https://github.com/hyprwm/Hyprland). 
+
 Matshell can be dynamically themed either with the color-theme generation scripts that I yanked and botched from [end-4](https://github.com/end-4/dots-hyprland), or together with the [matugen](https://github.com/InioX/matugen) templates also included here. Some snippets for CPU / RAM widgets are inspired by [AhmedSaadi0](https://github.com/AhmedSaadi0/my-hyprland-config/tree/main). The design is also influenced by [saimoomedits](https://github.com/saimoomedits/eww-widgets).
 
 ______________________________________________________________________
