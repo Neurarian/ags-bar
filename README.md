@@ -68,7 +68,7 @@ git clone https://github.com/Neurarian/matshell
 ... and link/move/copy its content into ~/.config/ags or your stowed ags dotfiles directory. E.g.
 
 ```console
-cp -r matshell/* ~/.config/ags
+cp -r matshell/* $HOME/.config/ags
 ```
 
 For the color generation with the end-4-scripts to work, run this command to create the necessary additional directories:
