@@ -41,27 +41,6 @@
         "type": "github"
       }
     },
-    "astal_2": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1739784829,
-        "narHash": "sha256-D64mquBG3hQjd1VAkSSjaTqxSCIP9Dly08GWdekSmqI=",
-        "owner": "aylur",
-        "repo": "astal",
-        "rev": "bfa376a3468f7c657e46a87c61ea7e9d8c6336b4",
-        "type": "github"
-      },
-      "original": {
-        "owner": "aylur",
-        "repo": "astal",
-        "rev": "bfa376a3468f7c657e46a87c61ea7e9d8c6336b4",
-        "type": "github"
-      }
-    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib"
@@ -127,7 +106,6 @@
     "root": {
       "inputs": {
         "ags": "ags",
-        "astal": "astal_2",
         "flake-parts": "flake-parts",
         "nixpkgs": "nixpkgs_2",
         "systems": "systems"
