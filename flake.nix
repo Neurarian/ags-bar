@@ -67,5 +67,11 @@
           };
         };
       };
+      flake = {
+        homeManagerModules = {
+          default = self.homeManagerModules.matshell;
+          matshell = import ./nix/hm-module.nix self;
+        };
+      };
     };
 }
