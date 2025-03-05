@@ -9,7 +9,6 @@
     };
     ags = {
       url = "github:aylur/ags";
-      inputs.astal.url = "github:aylur/astal?rev=bfa376a3468f7c657e46a87c61ea7e9d8c6336b4";
     };
   };
 
