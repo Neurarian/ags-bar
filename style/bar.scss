@@ -135,7 +135,7 @@
     min-width: 2.2rem;
     min-height: 1.3rem;
     font-size: 0.35rem;
-    background: transparentize($surface_dim, 0.5);
+    background: transparentize($procBg, 0.5);
   }
 
   .bar-hardware-progress-inner-circle {
@@ -146,7 +146,7 @@
 
   .cpu {
     @extend .bar-hardware-progress-circle;
-    color: $on_primary_fixed_variant;
+    color: $cpuProc;
 
     .cpu-inner {
       @extend .bar-hardware-progress-inner-circle;
@@ -157,7 +157,7 @@
 
   .ram {
     @extend .bar-hardware-progress-circle;
-    color: $on_tertiary_fixed_variant;
+    color: $ramProc;
   }
 
   .ram-inner {

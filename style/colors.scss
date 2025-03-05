@@ -24,6 +24,6 @@ $buttonEnabledHover:   adjust_color($buttonEnabled, $lightness: -15%);
 $buttonDisabled:       $surface;
 $buttonDisabledHover:  adjust_color($buttonDisabled, $alpha: +0.8);
 
-$ramProc:              $onPrimaryFixedVariant
-$cpuProc:              $onTertiaryFixedVariant
-$procBg                $surfaceDim
+$ramProc:              $onPrimaryFixedVariant;
+$cpuProc:              $onTertiaryFixedVariant;
+$procBg:               $surfaceDim;
