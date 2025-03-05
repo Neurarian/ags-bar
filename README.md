@@ -51,7 +51,13 @@ ______________________________________________________________________
 
 **Before you start make sure to create a backup of your current config if you want to keep it!**
 
-Clone this repo...
+Run the installation script:
+
+```console
+ bash <(curl -s https://raw.githubusercontent.com/Neurarian/matshell/refs/heads/master/install.sh)
+```
+
+...Or do it manually by cloning this repo...
 
 ```console
 git clone https://github.com/Neurarian/matshell
