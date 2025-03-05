@@ -32,3 +32,8 @@ $buttonEnabledHover:   adjust_color($buttonEnabled, $lightness: -15%);
 
 $buttonDisabled:       $surface;
 $buttonDisabledHover:  adjust_color($buttonDisabled, $alpha: +0.8);
+
+/* hw circular proc */
+$ramProc:              $on_primary_fixed_variant;
+$cpuProc:              $on_tertiary_fixed_variant;
+$procBg:               $surface_dim;
