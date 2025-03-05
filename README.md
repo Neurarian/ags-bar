@@ -60,15 +60,10 @@ Run the installation script:
 
 ...Or do it manually by cloning this repo...
 
-```console
-git clone https://github.com/Neurarian/matshell
-```
 **❗Make sure to create a backup of your current config if you want to keep it❗**
 
-... and link/move/copy its content into ~/.config/ags or your stowed ags dotfiles directory. E.g.
-
 ```console
-cp -r matshell/* $HOME/.config/ags
+  git clone --depth 1 "https://github.com/Neurarian/matshell" "$XDG_CONFIG_HOME/ags/"
 ```
 
 For the color generation with the end-4-scripts to work, run this command to create the necessary additional directories:
