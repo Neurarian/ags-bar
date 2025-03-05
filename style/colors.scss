@@ -1,24 +1,29 @@
 @import 'material';
+
 $red:                   #d17678;
 $accent_green:          #afbea2;
 
-$primary-mon:           $primaryContainer;
-$secondary-mon:         $tertiaryContainer;
-$third-mon:             $tertiary;
-$fourth-mon:            $success;
+$primaryMon:           $primaryContainer;
+$secondaryMon:         $tertiaryContainer;
+$thirdMon:             $tertiary;
+$fourthMon:            $success;
 
-$tooltip-bg:            $background;
-$fg:                    $onBackground;
-$bg:                    transparentize($background, .5);
-$bar-bg:                transparentize($background, .5);
+$tooltipBg:            $background;
+$fg:                   $onBackground;
+$bg:                   transparentize($background, .5);
+$barBg:                transparentize($background, .5);
 
-$surface:               transparentize($surfaceBright, .6);
-$overlay:               transparentize($onSurface, .25);
+$surface:              transparentize($surfaceBright, .6);
+$overlay:              transparentize($onSurface, .25);
 
-$accent:                $tertiaryContainer;
+$accent:               $tertiaryContainer;
 
-$button-enabled:        $accent;
-$button-enabled-hover:  adjust_color($button-enabled, $lightness: -15%);
+$buttonEnabled:        $accent;
+$buttonEnabledHover:   adjust_color($buttonEnabled, $lightness: -15%);
 
-$button-disabled:       $surface;
-$button-disabled-hover: adjust_color($button-disabled, $alpha: +0.8);
+$buttonDisabled:       $surface;
+$buttonDisabledHover:  adjust_color($buttonDisabled, $alpha: +0.8);
+
+$ramProc:              $onPrimaryFixedVariant
+$cpuProc:              $onTertiaryFixedVariant
+$procBg                $surfaceDim

@@ -1,5 +1,5 @@
 .Bar {
-  background: $bar-bg;
+  background: $barBg;
   border-radius: calc(#{$round} * 4);
   font-size: $font;
   box-shadow: inset -2px -2px 3px rgba(0, 0, 0, 0.4) , -1px -1px 2px $bg; 
@@ -26,33 +26,33 @@
     }
 
     .monitor0 {
-      background: $primary-mon;
-      box-shadow: inset -2px -2px 2px adjust_color($primary-mon, $lightness: -10%);
+      background: $primaryMon;
+      box-shadow: inset -2px -2px 2px adjust_color($primaryMon, $lightness: -10%);
     }
     .monitor0:hover{
-      background: adjust_color($primary-mon, $lightness: +8%);
+      background: adjust_color($primaryMon, $lightness: +8%);
     }
 
     .monitor1 {
-      background: $secondary-mon;
-      box-shadow: inset -2px -2px 2px adjust_color($secondary-mon, $lightness: -10%);
+      background: $secondaryMon;
+      box-shadow: inset -2px -2px 2px adjust_color($secondaryMon, $lightness: -10%);
     }
     .monitor1:hover{
-      background: adjust_color($secondary-mon, $lightness: +8%);
+      background: adjust_color($secondaryMon, $lightness: +8%);
     }
     .monitor2 {
-      background: $third-mon;
-      box-shadow: inset -2px -2px 2px adjust_color($third-mon, $lightness: -10%);
+      background: $thirdMon;
+      box-shadow: inset -2px -2px 2px adjust_color($thirdMon, $lightness: -10%);
     }
     .monitor2:hover{
-      background: adjust_color($third-mon, $lightness: +8%);
+      background: adjust_color($thirdMon, $lightness: +8%);
     }
     .monitor3 {
-      background: $fourth-mon;
-      box-shadow: inset -2px -2px 2px adjust_color($fourth-mon, $lightness: -10%);
+      background: $fourthMon;
+      box-shadow: inset -2px -2px 2px adjust_color($fourthMon, $lightness: -10%);
     }
     .monitor3:hover{
-      background: adjust_color($fourth-mon, $lightness: +8%);
+      background: adjust_color($fourthMon, $lightness: +8%);
     }
   }
 
@@ -96,7 +96,7 @@
   }
 
   menu {
-    background: $tooltip-bg;
+    background: $tooltipBg;
     border-radius: $round;
 
     separator {
@@ -135,7 +135,7 @@
     min-width: 2.2rem;
     min-height: 1.3rem;
     font-size: 0.35rem;
-    background: transparentize($surfaceDim, 0.5);
+    background: transparentize($surface_dim, 0.5);
   }
 
   .bar-hardware-progress-inner-circle {
@@ -146,7 +146,7 @@
 
   .cpu {
     @extend .bar-hardware-progress-circle;
-    color: $term1;
+    color: $on_primary_fixed_variant;
 
     .cpu-inner {
       @extend .bar-hardware-progress-inner-circle;
@@ -157,7 +157,7 @@
 
   .ram {
     @extend .bar-hardware-progress-circle;
-    color: $term4;
+    color: $on_tertiary_fixed_variant;
   }
 
   .ram-inner {

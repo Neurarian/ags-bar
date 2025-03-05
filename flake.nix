@@ -67,6 +67,7 @@
           };
         };
       };
+
       flake = {
         homeManagerModules = {
           default = self.homeManagerModules.matshell;
