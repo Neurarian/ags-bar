@@ -3,9 +3,9 @@
 XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
 XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
-CONFIG_DIR="$XDG_CONFIG_HOME/astal"
-CACHE_DIR="$XDG_CACHE_HOME/astal"
-STATE_DIR="$XDG_STATE_HOME/astal"
+CONFIG_DIR="$XDG_CONFIG_HOME/ags"
+CACHE_DIR="$XDG_CACHE_HOME/ags"
+STATE_DIR="$XDG_STATE_HOME/ags"
 
 term_alpha=100 #Set this to < 100 make all your terminals transparent
 # sleep 0 # idk i wanted some delay or colors dont get applied properly
@@ -165,7 +165,7 @@ apply_gtk() { # Using gradience-cli
     fi
 }
 
-apply_astal() {
+apply_ags() {
     cp "$STATE_DIR"/scss/_material.scss "$CONFIG_DIR"/style/material.scss
 }
 
@@ -185,7 +185,7 @@ else
     colorvalues=( $colorstrings ) # Array of color values
 fi
 
-apply_astal &
+apply_ags &
 apply_wlogout &
 apply_hyprland &
 apply_hyprlock &
