@@ -16,7 +16,7 @@ function OnScreenProgress({ visible }: { visible: Variable<boolean> }) {
 	try {
 		brightness = Brightness.get_default();
 	} catch (e) {
-		console.error("Brightness controls unavailable. If you're on desktop this is not an issue:", e instanceof Error ? e.message : String(e));
+		console.log("Brightness controls unavailable. If you're on desktop this is not an issue.");
 	}
 
 	// BLuetooth
