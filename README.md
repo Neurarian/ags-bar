@@ -49,8 +49,6 @@ ______________________________________________________________________
 
 ### 🛠️ Installation
 
-**Before you start make sure to create a backup of your current config if you want to keep it!**
-
 Run the installation script:
 
 ```console
@@ -58,18 +56,19 @@ Run the installation script:
 ```
 
 <details>
-  <summary>Manual install<summary>
+  <summary>Manual install</summary>
 
 ...Or do it manually by cloning this repo...
 
 ```console
 git clone https://github.com/Neurarian/matshell
 ```
+**❗Make sure to create a backup of your current config if you want to keep it❗**
 
 ... and link/move/copy its content into ~/.config/ags or your stowed ags dotfiles directory. E.g.
 
 ```console
-mv matshell ~/.config/ags
+cp -r matshell/* ~/.config/ags
 ```
 
 For the color generation with the end-4-scripts to work, run this command to create the necessary additional directories:
@@ -88,8 +87,7 @@ $HOME/.config/astal/scripts/colorgen.sh "$HOME/.cache/current_wallpaper.jpg" --a
 
 The color generation works better with wallpapers that have a bit of contrast.
 
-<details>
-  <summary>#### ❄️ Nix<summary>
+#### ❄️ Nix
 
 For a NixOS implementation and example [script](https://github.com/Neurarian/NixOS-config/blob/master/home/Liqyid/common/optional/scripts/wal_set.nix) for use with hyprpaper, matugen, and a [custom cli utility](https://github.com/Neurarian/NixOS-config/tree/master/packages/image-hct) to get chroma/tone, check my [NixOS-config](https://github.com/Neurarian/NixOS-config). On Nix you can test the config via the flake exposed package, but I would recommend to also imperatively copy or symlink this repo to your dotfiles to circumvent nix-store immutability. Otherwise the dynamic theming will not work. One way to do this would be via the home-manager module which adds the following enable option the the set of ags options:
 
@@ -112,7 +110,6 @@ programs.ags = {
 
 This will simply clone the repo for you to .config/ags if that dir does not exist. This is absolutely hacky and not the nix way to do it, but it gets the job done. To get the latest version of matshell, you would have to pull the updates manually or delete .config/ags and rebuild the system/home-manager.
 
-</details>
 
 ______________________________________________________________________
 
