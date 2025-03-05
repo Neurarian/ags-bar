@@ -57,10 +57,10 @@ Clone this repo...
 git clone https://github.com/Neurarian/matshell
 ```
 
-... and link/move/copy its content into ~/.config/astal or your stowed ags dotfiles directory. E.g.
+... and link/move/copy its content into ~/.config/ags or your stowed ags dotfiles directory. E.g.
 
 ```console
-mv matshell ~/.config/astal
+mv matshell ~/.config/ags
 ```
 
 For the color generation with the end-4-scripts to work, run this command to create the necessary additional directories:
@@ -76,7 +76,7 @@ $HOME/.config/astal/scripts/colorgen.sh "$HOME/.cache/current_wallpaper.jpg" --a
 ```
 
 The color generation works better with wallpapers that have a bit of contrast.
-For a NixOS implementation and example [script](https://github.com/Neurarian/NixOS-config/blob/master/home/Liqyid/common/optional/scripts/wal_set.nix) for use with hyprpaper, matugen, and a [custom cli utility](https://github.com/Neurarian/NixOS-config/tree/master/packages/image-hct) to get chroma/tone, check my [NixOS-config](https://github.com/Neurarian/NixOS-config).
+For a NixOS implementation and example [script](https://github.com/Neurarian/NixOS-config/blob/master/home/Liqyid/common/optional/scripts/wal_set.nix) for use with hyprpaper, matugen, and a [custom cli utility](https://github.com/Neurarian/NixOS-config/tree/master/packages/image-hct) to get chroma/tone, check my [NixOS-config](https://github.com/Neurarian/NixOS-config). On Nix you can test the config via the flake exposed package, but I would recommend to also imperatively copy or symlink this repo to your dotfiles to circumvent nix-store immutability. Otherwise the dynamic theming will not work. I'm planning to write a home-manager module to do this for you, but currently I have no idea how to ensure that the files end up mutably in .config.
 
 ______________________________________________________________________
 
