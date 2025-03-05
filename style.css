@@ -1,0 +1,459 @@
+* {
+  all: unset;
+  font-family: FiraCode Nerd Font;
+}
+
+* {
+  color: #F8DDD0;
+  text-shadow: 0 2px 3px rgba(29, 16, 9, 0.2);
+}
+
+/* mixins */
+tooltip {
+  background: #1D1009;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1), 0 0 rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+}
+
+/* scales & progress bars */
+scale trough,
+progressbar trough {
+  background-color: rgba(70, 54, 45, 0.4);
+  border-radius: 0.5rem;
+  min-width: calc(0.5rem * 10);
+  padding: 0 calc(0.5rem / 2);
+}
+scale highlight,
+scale progress,
+progressbar highlight,
+progressbar progress {
+  background: rgba(248, 221, 208, 0.75);
+  border-radius: 0.5rem;
+  margin: 0 calc(0px - 0.5rem / 2);
+  min-height: 0.5rem;
+}
+
+.button {
+  transition: 200ms;
+  background: #B28A48;
+  border-radius: 5rem;
+  padding: 0.4rem;
+}
+.button:hover {
+  background: rgb(123.532, 95.772, 49.968);
+}
+
+.button-disabled {
+  transition: 200ms;
+  background: rgba(70, 54, 45, 0.4);
+  border-radius: 5rem;
+  padding: 0.4rem;
+}
+.button-disabled:hover {
+  background: #46362d;
+}
+
+/* modules & windows */
+.Bar {
+  background: rgba(29, 16, 9, 0.5);
+  border-radius: calc(8px * 4);
+  font-size: 1.1rem;
+  box-shadow: inset -2px -2px 3px rgba(0, 0, 0, 0.4), -1px -1px 2px rgba(29, 16, 9, 0.5);
+  /* music */
+  /* tray */
+}
+.Bar .module {
+  margin: 0 0.4rem;
+}
+.Bar .Workspaces {
+  margin: 0.2rem 0.8rem;
+}
+.Bar .Workspaces button {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 2rem;
+  margin: 0.6rem 0.35rem;
+  min-width: 1.3rem;
+  min-height: 1.3rem;
+  transition: 100ms linear;
+  box-shadow: inset -2px -2px 2px rgba(29, 16, 9, 0.3);
+}
+.Bar .Workspaces .focused {
+  min-width: 2.5rem;
+}
+.Bar .Workspaces .monitor0 {
+  background: #763300;
+  box-shadow: inset -2px -2px 2px rgb(67, 28.9576271186, 0);
+}
+.Bar .Workspaces .monitor0:hover {
+  background: rgb(158.8, 68.6338983051, 0);
+}
+.Bar .Workspaces .monitor1 {
+  background: #B28A48;
+  box-shadow: inset -2px -2px 2px rgb(141.688, 109.848, 57.312);
+}
+.Bar .Workspaces .monitor1:hover {
+  background: rgb(191.8704, 156.7984, 98.9296);
+}
+.Bar .Workspaces .monitor2 {
+  background: #ECBF78;
+  box-shadow: inset -2px -2px 2px rgb(229.7077922078, 169.8051948052, 75.2922077922);
+}
+.Bar .Workspaces .monitor2:hover {
+  background: rgb(241.0337662338, 207.9558441558, 155.7662337662);
+}
+.Bar .Workspaces .monitor3 {
+  background: #B5CCBA;
+  box-shadow: inset -2px -2px 2px rgb(150.808, 183.192, 157.848);
+}
+.Bar .Workspaces .monitor3:hover {
+  background: rgb(205.1536, 220.6464, 208.5216);
+}
+.Bar .Media > box {
+  transition: 200ms;
+  border-radius: 16px;
+  margin: 0.4rem;
+  font-size: 1.1rem;
+}
+.Bar .Media.active > box {
+  background: rgba(70, 54, 45, 0.4);
+}
+.Bar .Media .cover {
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  min-width: 2rem;
+  min-height: 2rem;
+  margin: 0 0.4rem;
+}
+.Bar .SysTray button {
+  transition: 200ms;
+  background: rgba(70, 54, 45, 0.4);
+  border-radius: 5rem;
+  padding: 0.4rem;
+  background: none;
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+.Bar .SysTray button:hover {
+  background: #46362d;
+}
+.Bar .SysTray button:not(:last-child) {
+  margin-right: 0.3rem;
+}
+.Bar .SysTray button.active {
+  background: rgba(70, 54, 45, 0.4);
+}
+.Bar menu {
+  background: #1D1009;
+  border-radius: 8px;
+}
+.Bar menu separator {
+  background-color: rgba(70, 54, 45, 0.4);
+}
+.Bar menu menuitem {
+  transition: 200ms;
+  background: rgba(70, 54, 45, 0.4);
+  border-radius: 5rem;
+  padding: 0.4rem;
+  border-radius: 0;
+  padding: 0.4rem 0.7rem;
+}
+.Bar menu menuitem:hover {
+  background: #46362d;
+}
+.Bar menu menuitem:first-child {
+  border-radius: 8px 8px 0 0;
+}
+.Bar menu menuitem:last-child {
+  border-radius: 0 0 8px 8px;
+}
+.Bar menu menuitem:only-child {
+  border-radius: 8px;
+}
+.Bar .system-menu-toggler box {
+  transition: 200ms;
+  margin: 0.4rem 0;
+  border-radius: 16px;
+}
+.Bar .system-menu-toggler.active box {
+  background: rgba(70, 54, 45, 0.4);
+}
+.Bar .bar-hardware-progress-circle, .Bar .ram, .Bar .cpu {
+  min-width: 2.2rem;
+  min-height: 1.3rem;
+  font-size: 0.35rem;
+  background: rgba(29, 16, 9, 0.5);
+}
+.Bar .bar-hardware-progress-inner-circle, .Bar .ram-inner, .Bar .cpu .cpu-inner {
+  font-size: 0.7rem;
+  margin: 1px 4px 0px 0px;
+  color: #F8DDD0;
+}
+.Bar .cpu {
+  color: #5F4103;
+}
+.Bar .ram {
+  color: #763300;
+}
+.Bar .bar-hw-ram-box {
+  margin-right: 0.4rem;
+  margin-left: 0.3rem;
+}
+.Bar .bar-hw-ram-box button label {
+  margin: 0px 0px 0px 4px;
+  font-family: "Material Symbols Outlined";
+  font-size: 1.2rem;
+}
+.Bar .bar-hw-cpu-box {
+  margin-left: 0.4rem;
+  margin-right: 0.3rem;
+}
+.Bar .bar-hw-cpu-box button label {
+  margin: 0px 0px 0px 5px;
+  font-family: "Material Symbols Outlined";
+  font-size: 1.3rem;
+}
+.Bar .separator {
+  font-size: 1.8rem;
+  color: #A68B7D;
+}
+.Bar .date {
+  margin: 0 1.2rem 0 0.4rem;
+}
+.Bar .power-button {
+  margin: 0 1.2rem 0 0rem;
+}
+
+.music.window {
+  box-shadow: 0 3px 5px 1px rgba(29, 16, 9, 0.1);
+  border-radius: 16px;
+  background: rgba(29, 16, 9, 0.5);
+  margin: 5px 10px 15px;
+  padding: 0.4rem;
+}
+.music.window .cover {
+  background-position: center;
+  background-size: cover;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px -1px rgba(29, 16, 9, 0.5);
+  margin: 0.4rem;
+  min-height: 13rem;
+  min-width: 13rem;
+}
+
+.music.window .info {
+  margin: 0.5rem;
+}
+.music.window .info label,
+.music.window .info scale {
+  margin: 0.3rem 0;
+}
+.music.window .info label.position,
+.music.window .info label.length {
+  font-size: 0.8rem;
+  margin-bottom: 0;
+}
+.music.window .info scale {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.music.window .info .title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  min-width: 14rem;
+}
+
+.music.window .controls button {
+  margin: 0 0.2rem;
+  font-size: 1.5rem;
+}
+
+.music.window .player-info {
+  margin-bottom: 0;
+}
+.music.window .player-info .player-icon {
+  font-size: 1.2rem;
+}
+
+.osd {
+  box-shadow: 0 3px 5px 1px rgba(29, 16, 9, 0.1);
+  border-radius: 16px;
+  background: rgba(29, 16, 9, 0.5);
+  margin: 5px 10px 15px;
+  padding: 0.4rem;
+  border-radius: 3rem;
+  box-shadow: none;
+  margin-bottom: 5rem;
+  padding: 1rem;
+}
+.osd icon {
+  font-size: 4rem;
+  margin: 0.5rem;
+}
+.osd box {
+  margin: 0.5rem;
+}
+.osd label {
+  margin: 0 0 0.5rem;
+}
+.osd levelbar trough {
+  margin: 0.5rem 0.5rem;
+}
+.osd levelbar block {
+  min-height: 1rem;
+}
+.osd levelbar block.filled {
+  border-radius: 1.5rem;
+  background-color: #F8DDD0;
+}
+
+/* general */
+.system-menu {
+  box-shadow: 0 3px 5px 1px rgba(29, 16, 9, 0.1);
+  border-radius: 16px;
+  background: rgba(29, 16, 9, 0.5);
+  margin: 5px 10px 15px;
+  padding: 0.4rem;
+  margin-top: 4px;
+  margin-right: 4px;
+}
+.system-menu > box {
+  border-radius: calc(16px - 0.4rem - 2px);
+  background: rgba(70, 54, 45, 0.4);
+  box-shadow: 0 1px 5px -5px rgba(0, 0, 0, 0.5);
+  margin: 0.4rem;
+  padding: 0.4rem;
+}
+
+/* toggles */
+.system-menu .toggle {
+  min-width: 20rem;
+}
+.system-menu .toggle:not(:last-child) {
+  margin-bottom: 0.3rem;
+}
+.system-menu .toggle button {
+  margin-right: 0.5rem;
+}
+
+/* power profiles */
+.system-menu .power-profiles {
+  padding: 0;
+}
+.system-menu .power-profiles .current-profile {
+  padding: 0.3rem;
+}
+.system-menu .power-profiles icon,
+.system-menu .power-profiles label {
+  margin: 0.3rem;
+}
+.system-menu .power-profiles .options {
+  padding: 0;
+}
+.system-menu .power-profiles .options widget {
+  transition: 200ms;
+  background: rgba(70, 54, 45, 0.4);
+  border-radius: 5rem;
+  padding: 0.4rem;
+  border-radius: 0;
+}
+.system-menu .power-profiles .options widget:hover {
+  background: #46362d;
+}
+.system-menu .power-profiles .options widget:last-child {
+  border-radius: 0 0 8px 8px;
+}
+.system-menu .power-profiles .options widget box {
+  padding: 0.3rem;
+}
+
+/* sliders */
+.system-menu .sliders {
+  min-height: 0.5rem;
+}
+.system-menu .sliders icon {
+  margin: 0.3rem;
+}
+.system-menu .sliders trough {
+  margin: 0.5rem 0.5rem;
+}
+.system-menu .sliders block {
+  min-height: 0.5rem;
+}
+.system-menu .sliders block filled {
+  border-radius: 1.5rem;
+  background-color: #F8DDD0;
+}
+
+.notification {
+  margin: 5px 5px 5px 10px;
+  min-width: 20rem;
+  border-radius: 16px;
+  background-color: rgba(29, 16, 9, 0.5);
+  border: 1px solid transparent;
+  padding: 0.25rem 0.75rem;
+}
+.notification.critical {
+  border: 1px solid red;
+}
+.notification .header .app-name {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: rgba(248, 221, 208, 0.7);
+}
+.notification .header .time {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: rgba(248, 221, 208, 0.7);
+}
+.notification separator {
+  margin: 0 -0.75rem;
+  background-color: rgba(248, 221, 208, 0.5);
+}
+.notification .content {
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+.notification .content > box {
+  min-width: 64px;
+  min-height: 64px;
+  border-radius: 8px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.notification .content icon {
+  font-size: 64px;
+}
+.notification .content .thumb {
+  margin-right: 0.5rem;
+}
+.notification .content .title {
+  margin-right: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #F8DDD0;
+}
+.notification .content .body {
+  margin-right: 0.5rem;
+  font-size: 0.95rem;
+  color: rgba(248, 221, 208, 0.8);
+  margin-top: 0.75rem;
+}
+.notification .actions {
+  margin-top: 1rem;
+}
+.notification .actions .action-button {
+  border-radius: calc(16px - 0.4rem - 2px);
+  background: rgba(70, 54, 45, 0.4);
+  box-shadow: 0 1px 5px -5px rgba(0, 0, 0, 0.5);
+  margin: 0.4rem;
+  padding: 0.4rem;
+  transition: 200ms;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+.notification .actions .action-button:hover {
+  background: #46362d;
+}
+
+/*# sourceMappingURL=style.css.map */

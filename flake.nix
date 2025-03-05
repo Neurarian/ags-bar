@@ -35,7 +35,7 @@
         packages.default = ags.lib.bundle {
           inherit pkgs name;
           src = ./.;
-          entry = "app.ts";
+          entry = "bundleapp.ts";
 
           extraPackages =
             (with ags.packages.${system}; [
