@@ -61,6 +61,7 @@
               dart-sass
               mission-center
               imagemagick
+              libgtop
               # any other package
             ]);
         };

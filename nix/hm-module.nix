@@ -12,6 +12,7 @@ self: {
 
   requiredDeps = with pkgs; [
     imagemagick
+    libgtop
   ];
 
   guiDeps = with pkgs; [
