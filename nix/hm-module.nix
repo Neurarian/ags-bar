@@ -11,7 +11,7 @@ self: {
   agsPkgs = inputs.ags.packages.${system};
 
   requiredDeps = with pkgs; [
-    imagemagick_light
+    imagemagick
   ];
 
   guiDeps = with pkgs; [

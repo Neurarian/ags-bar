@@ -8,7 +8,7 @@ import { Info } from "./modules/Info"
 function MusicBox({ player }: { player: Mpris.Player }) {
 	return (
 		<box className="music window"
-			/* css={bind(player, "cover_art").as(generateBackground)} */
+			css={bind(player, "cover_art").as(generateBackground)}
 		>
 			<Cover player={player} />
 			<Info player={player} />

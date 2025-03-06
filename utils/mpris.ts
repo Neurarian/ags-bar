@@ -20,25 +20,28 @@ export function mprisStateIcon(status: Mpris.PlaybackStatus): string {
 const MEDIA_CACHE_PATH = GLib.get_user_cache_dir() + "/media"
 const blurredPath = MEDIA_CACHE_PATH + "/blurred"
 
-export function generateBackground(coverPath: string | null): string {
-    if (!coverPath) return ""
+export function generateBackground(coverpath: string | null): string {
+    if (!coverpath) return ""
 
-    const makeBg = (bg: string) => `background: center/cover url('${bg}')`
+    const makebg = (bg: string) => `background: center/cover url('${bg}')`
 
-    const blurred = blurredPath + coverPath.substring(MEDIA_CACHE_PATH.length)
+    // Construct blurred path using path.join for safe concatenation
+    const relativePath = coverpath.substring(MEDIA_CACHE_PATH.length + 1) // +1 to skip slash
+    const blurred = GLib.build_filenamev([blurredPath, relativePath])
 
-    if (GLib.file_test(blurred, GLib.FileTest.EXISTS)) {
-        return makeBg(blurred)
+    // Create parent directory for blurred file
+    const blurredDir = GLib.path_get_dirname(blurred)
+    if (!GLib.file_test(blurredDir, GLib.FileTest.EXISTS)) {
+        GLib.mkdir_with_parents(blurredDir, 0o755)
     }
 
-    GLib.mkdir_with_parents(blurredPath, 0o755)
-    exec(`magick ${coverPath} -blur 0x22 ${blurred}`)
+    exec(`magick "${coverpath}" -blur 0x22 "${blurred}"`)
 
-    return makeBg(blurred)
+    return makebg(blurred)
 }
 
 export function lengthStr(length: number) {
-  const min = Math.floor(length / 60).toString();
-  const sec = Math.floor(length % 60).toString().padStart(2, "0");
-  return min + ":" + sec;
+    const min = Math.floor(length / 60).toString();
+    const sec = Math.floor(length % 60).toString().padStart(2, "0");
+    return min + ":" + sec;
 }

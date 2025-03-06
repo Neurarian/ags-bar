@@ -60,7 +60,7 @@
               typescript
               dart-sass
               mission-center
-              imagemagick_light
+              imagemagick
               # any other package
             ]);
         };

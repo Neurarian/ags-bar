@@ -11,10 +11,6 @@ function SysTrayItem({ item }) {
         actionGroup={bind(item, "actionGroup").as((ag) => ["dbusmenu", ag])}
         usePopover={false}
         tooltipMarkup={bind(item, "tooltipMarkup")}
-        setup={self => {
-            // Store a reference to the button for later use
-            menuButtonRef = self.get_child();
-        }}
         onClicked={(self, event) => {
             try {
                 const button = event.button;
