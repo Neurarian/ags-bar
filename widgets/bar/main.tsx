@@ -9,34 +9,36 @@ import SystemInfo from "./modules/SystemInfo/main.tsx";
 import Time from "./modules/Time.tsx/";
 
 export default function Bar(monitor: Gdk.Monitor) {
-    const { TOP, LEFT, RIGHT } = Astal.WindowAnchor
+  const { TOP, LEFT, RIGHT } = Astal.WindowAnchor;
 
-    return <window
-        className="Bar"
-        gdkmonitor={monitor}
-        exclusivity={Astal.Exclusivity.EXCLUSIVE}
-        anchor={TOP | LEFT | RIGHT}
-        margin_left={5}
-        margin_right={5}
-        margin_top={5}
+  return (
+    <window
+      className="Bar"
+      gdkmonitor={monitor}
+      exclusivity={Astal.Exclusivity.EXCLUSIVE}
+      anchor={TOP | LEFT | RIGHT}
+      margin_left={5}
+      margin_right={5}
+      margin_top={5}
     >
-        <centerbox>
-            <box hexpand halign={Gtk.Align.START}>
-                <Workspaces />
-            </box>
-            <box>
-                <Media />
-            </box>
-            <box hexpand halign={Gtk.Align.END} >
-                <SysTray />
-                <Separator />
-                <Cpu />
-                <Mem />
-                <Separator />
-                <SystemInfo />
-                <Separator />
-                <Time />
-            </box>
-        </centerbox>
+      <centerbox>
+        <box hexpand halign={Gtk.Align.START}>
+          <Workspaces />
+        </box>
+        <box>
+          <Media />
+        </box>
+        <box hexpand halign={Gtk.Align.END}>
+          <SysTray />
+          <Separator />
+          <Cpu />
+          <Mem />
+          <Separator />
+          <SystemInfo />
+          <Separator />
+          <Time />
+        </box>
+      </centerbox>
     </window>
+  );
 }

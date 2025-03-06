@@ -1,9 +1,9 @@
-import Mpris from "gi://AstalMpris"
-import { PlayerInfo } from "./PlayerInfo"
-import { Title, Artists } from "./TitleArtists"
-import { Controls } from "./Controls"
-import { TimeInfo } from "./TimeInfo"
-import CavaDraw from "./Cava.tsx"
+import Mpris from "gi://AstalMpris";
+import { PlayerInfo } from "./PlayerInfo";
+import { Title, Artists } from "./TitleArtists";
+import { Controls } from "./Controls";
+import { TimeInfo } from "./TimeInfo";
+import { CavaDraw } from "./Cava.tsx";
 
 export function Info({ player }: { player: Mpris.Player }) {
   return (
@@ -13,8 +13,7 @@ export function Info({ player }: { player: Mpris.Player }) {
       <Artists player={player} />
       <Controls player={player} />
       <TimeInfo player={player} />
-      <CavaDraw vexpand={true}/>
+      <CavaDraw vexpand={true} />
     </box>
-  )
+  );
 }
-
