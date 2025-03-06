@@ -1,6 +1,6 @@
 # Simple Material Design desktop shell made with [Astal](https://github.com/Aylur/astal)
 
-This is heavily inspired by [fufexan's](https://github.com/fufexan/dotfiles) AGSv1 config, tailored to personal taste and my multi-monitor desktop setup on [hyprland](https://github.com/hyprwm/Hyprland). 
+This is heavily inspired by [fufexan's](https://github.com/fufexan/dotfiles) AGSv1 config, tailored to personal taste and my multi-monitor desktop setup on [hyprland](https://github.com/hyprwm/Hyprland).
 
 Matshell can be dynamically themed either with the color-theme generation scripts that I yanked and botched from [end-4](https://github.com/end-4/dots-hyprland), or together with the [matugen](https://github.com/InioX/matugen) templates also included here. Some snippets for CPU / RAM widgets are inspired by [AhmedSaadi0](https://github.com/AhmedSaadi0/my-hyprland-config/tree/main). The design is also influenced by [saimoomedits](https://github.com/saimoomedits/eww-widgets).
 
@@ -86,7 +86,7 @@ The color generation works better with wallpapers that have a bit of contrast.
 
 #### ❄️ Nix
 
-For a NixOS implementation and example [script](https://github.com/Neurarian/NixOS-config/blob/master/home/Liqyid/common/optional/scripts/wal_set.nix) for use with hyprpaper, matugen, and a [custom cli utility](https://github.com/Neurarian/NixOS-config/tree/master/packages/image-hct) to get chroma/tone, check my [NixOS-config](https://github.com/Neurarian/NixOS-config). 
+For a NixOS implementation and example [script](https://github.com/Neurarian/NixOS-config/blob/master/home/Liqyid/common/optional/scripts/wal_set.nix) for use with hyprpaper, matugen, and a [custom cli utility](https://github.com/Neurarian/NixOS-config/tree/master/packages/image-hct) to get chroma/tone, check my [NixOS-config](https://github.com/Neurarian/NixOS-config).
 
 On Nix you can test the config via the flake exposed package, but I would recommend to also imperatively copy or symlink this repo to your dotfiles to circumvent nix-store immutability. Otherwise the dynamic theming will not work. One way to do this would be via the home-manager module which adds the following enable option the the set of ags options:
 
@@ -94,21 +94,20 @@ On Nix you can test the config via the flake exposed package, but I would recomm
 # ...
 
 imports = [
-  inputs.ags.homeManagerModules.default
   inputs.matshell.homeManagerModules.default
 ];
 
 programs.ags = {
   enable = true;
   matshell.enable = true;
-  # ...
     };
 #...
 
 ```
 
-This will simply clone the repo for you to .config/ags if that dir does not exist. This is absolutely hacky and not the nix way to do it, but it gets the job done. To get the latest version of matshell, you would have to pull the updates manually or delete .config/ags and rebuild the system/home-manager.
+This will simply clone the repo for you to .config/ags if that dir does not exist, build ags wrapped with all dependencies for matshell, and start a systemd service. You will have to remove the ags home-manager module from you config, as enabling matshell will handle everything ags-related for you.
 
+This is absolutely hacky, unsafe, and not the nix way to do it, but it gets the job done. To get the latest version of matshell, you would have to pull the updates manually or delete .config/ags and rebuild the system/home-manager.
 
 ______________________________________________________________________
 
@@ -129,4 +128,6 @@ ______________________________________________________________________
 ______________________________________________________________________
 
 https://github.com/Neurarian/ags-bar/assets/110474238/3f01073e-552a-479b-99f9-d82647138e55
+
+```
 ```
